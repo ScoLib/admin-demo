@@ -6,13 +6,20 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "jenssegers/agent": "^2.5",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "scolib/admin": "1.0.x@dev",
+        "scolib/laravel-action-log": "dev-master"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^2.3",
+        "barryvdh/laravel-ide-helper": "^2.2",
+        "doctrine/dbal": "^2.5",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7"
+        "phpunit/phpunit": "~5.7",
+        "predis/predis": "^1.1"
     },
     "autoload": {
         "classmap": [
@@ -40,12 +47,28 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta",
+            "php artisan optimize",
+            "php artisan vendor:publish --provider=\"Sco\\Admin\\Providers\\PublishServiceProvider\" --force",
+            "php artisan migrate:refresh",
+            "php artisan db:seed --class=AdminTableSeeder",
+            "php artisan cache:clear"
         ]
     },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:ScoLib/admin.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:ScoLib/laravel-action-log.git"
+        }
+    ]
 }

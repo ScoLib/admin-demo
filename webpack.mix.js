@@ -11,5 +11,63 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+// mix.js('resources/assets/js/app.js', 'public/js')
+//     .extract(['lodash', 'vue', 'jquery', 'axios', 'bootstrap-sass']);
+// mix.sass('resources/assets/sass/app.scss', 'public/css');
+/*mix.webpackConfig({
+    externals: {
+        jquery: 'window.$',
+        vue: 'window.Vue',
+        axios: 'window.axios'
+    }
+});*/
+var adminPublicPath = 'vendor/admin/';
+mix.autoload({
+    jquery: ['$', 'window.jQuery', 'jQuery'],
+    vue: 'Vue'
+});
+
+mix.webpackConfig({
+    output: {
+        chunkFilename: `${adminPublicPath}js/[name]${mix.config.inProduction ? '.[chunkhash].chunk.js' : '.chunk.js'}`,
+        publicPath: '/',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(woff2?|ttf|eot|svg|otf)$/,
+                loader: 'file-loader',
+                options: {
+                    name: `${adminPublicPath}fonts/[name].[ext]?[hash]`,
+                    publicPath: '/'
+                }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                loaders: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: `${adminPublicPath}images/[name].[ext]?[hash]`,
+                            publicPath: '/'
+                        }
+                    },
+                ]
+            },
+        ],
+    }
+});
+
+
+
+mix.js('resources/assets/vendor/admin/main.js', `public/${adminPublicPath}js/app.js`)
+    .extract(['vue', 'jquery', 'bootstrap', 'vue-router', 'element-ui'])
+
+mix.less('resources/assets/vendor/admin/less/admin.less', `public/${adminPublicPath}css/app.css`);
+
+if (mix.config.inProduction) {
+    mix.version();
+}
+
+// mix.disableNotifications();
+
