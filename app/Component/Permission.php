@@ -9,13 +9,13 @@ use Sco\Admin\Component\Component;
 use Sco\Admin\Component\Concerns\HasNavigation;
 use Sco\Admin\Contracts\WithNavigation;
 
-class Role extends Component implements WithNavigation
+class Permission extends Component implements WithNavigation
 {
     use HasNavigation;
 
-    protected $permissionObserver = \App\Observers\RoleObserver::class;
+    protected $permissionObserver = \App\Observers\PermissionObserver::class;
 
-    protected $title = '角色';
+    protected $title = '权限';
 
     public function boot()
     {
@@ -29,7 +29,7 @@ class Role extends Component implements WithNavigation
             ->getPages()
             ->findById('users')
             ->addPage($page)
-            ->setIcon('fa fa-user-plus');
+            ->setIcon('fa fa-user');
     }
 
     public function getColumns()
@@ -44,7 +44,9 @@ class Role extends Component implements WithNavigation
 
     public function callView()
     {
-        $view = AdminView::table()->setColumns($this->getColumns());
+        $view = AdminView::table()
+            ->setColumns($this->getColumns())
+            ->disablePagination();
 
         return $view;
     }
