@@ -49,6 +49,11 @@ class Role extends Component implements WithNavigation
         return $view;
     }
 
+    public function callEdit()
+    {
+
+    }
+
     public function callCreate()
     {
 

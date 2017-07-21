@@ -34,13 +34,11 @@ class User extends Component implements WithNavigation
 
     public function getColumns()
     {
-        $a = AdminColumn::text('id', 'ID')->setWidth(80);
-        $c = AdminColumn::datetime('created_at', 'Created At')->setFormat('humans');
         return [
-            $a,
+            AdminColumn::text('id', 'ID')->setWidth(80),
             AdminColumn::text('name', 'Name')->setWidth(120),
             AdminColumn::text('email', 'Email')->setWidth(120),
-            $c,
+            AdminColumn::datetime('created_at', 'Created At')->setFormat('humans'),
         ];
     }
 
