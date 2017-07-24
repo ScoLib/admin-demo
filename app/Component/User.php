@@ -6,12 +6,10 @@ namespace App\Component;
 use AdminColumn;
 use AdminView;
 use Sco\Admin\Component\Component;
-use Sco\Admin\Component\Concerns\HasNavigation;
 use Sco\Admin\Contracts\WithNavigation;
 
 class User extends Component implements WithNavigation
 {
-    use HasNavigation;
 
     protected $permissionObserver = \App\Observers\UserObserver::class;
 
@@ -32,19 +30,17 @@ class User extends Component implements WithNavigation
             ->setIcon('fa fa-user');
     }
 
-    public function getColumns()
+    public function callView()
     {
-        return [
+        $view = AdminView::table();
+        $view->with(['roles']);
+        $view->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
             AdminColumn::text('name', 'Name')->setWidth(120),
             AdminColumn::text('email', 'Email')->setWidth(120),
+            AdminColumn::lists('roles.display_name', 'Display Name')->setWidth(200),
             AdminColumn::datetime('created_at', 'Created At')->setFormat('humans'),
-        ];
-    }
-
-    public function callView()
-    {
-        $view = AdminView::table()->setColumns($this->getColumns());
+        ]);
 
         return $view;
     }
