@@ -45,6 +45,11 @@ class User extends Component implements WithNavigation
         return $view;
     }
 
+    public function callEdit()
+    {
+
+    }
+
     public function callCreate()
     {
 
