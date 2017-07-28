@@ -32,20 +32,14 @@ class Role extends Component implements WithNavigation
             ->setIcon('fa fa-user-plus');
     }
 
-    public function getColumns()
+    public function callView()
     {
-        return [
+        $view = AdminView::table()->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
             AdminColumn::text('name', 'Name')->setWidth(120),
             AdminColumn::text('display_name', 'Display Name')->setWidth(120),
             AdminColumn::datetime('created_at', 'Created At'),
-        ];
-    }
-
-    public function callView()
-    {
-        $view = AdminView::table()->setColumns($this->getColumns());
-
+        ]);
         return $view;
     }
 
