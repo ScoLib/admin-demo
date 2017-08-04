@@ -52,6 +52,8 @@ class Role extends Component implements WithNavigation
     {
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name'),
+            AdminElement::text('display_name', 'Display Name'),
+            AdminElement::textarea('description', 'Description')->setRows(5),
         ]);
     }
 

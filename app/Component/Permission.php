@@ -4,6 +4,8 @@
 namespace App\Component;
 
 use AdminColumn;
+use AdminElement;
+use AdminForm;
 use AdminView;
 use Sco\Admin\Component\Component;
 use Sco\Admin\Component\Concerns\HasNavigation;
@@ -51,8 +53,23 @@ class Permission extends Component implements WithNavigation
         return $view;
     }
 
+    /**
+     * @return \Sco\Admin\Contracts\Form\FormInterface
+     */
+    public function callEdit()
+    {
+        return AdminForm::form()->setElements([
+            AdminElement::text('name', 'Name'),
+            AdminElement::text('display_name', 'Display Name'),
+            AdminElement::textarea('description', 'Description')->setRows(5),
+        ]);
+    }
+
+    /**
+     * @return \Sco\Admin\Contracts\Form\FormInterface
+     */
     public function callCreate()
     {
-
+        return $this->callEdit();
     }
 }
