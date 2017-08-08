@@ -34,21 +34,16 @@ class Permission extends Component implements WithNavigation
             ->setIcon('fa fa-user');
     }
 
-    public function getColumns()
-    {
-        return [
-            AdminColumn::text('id', 'ID')->setWidth(80),
-            AdminColumn::text('name', 'Name')->setWidth(120),
-            AdminColumn::text('display_name', 'Display Name')->setWidth(120),
-            AdminColumn::datetime('created_at', 'Created At'),
-        ];
-    }
 
     public function callView()
     {
         $view = AdminView::table()
-            ->setColumns($this->getColumns())
-            ->disablePagination();
+            ->setColumns([
+                AdminColumn::text('id', 'ID')->setWidth(80),
+                AdminColumn::text('name', 'Name')->setWidth(120),
+                AdminColumn::text('display_name', 'Display Name')->setWidth(120),
+                AdminColumn::datetime('created_at', 'Created At'),
+            ])->disablePagination();
 
         return $view;
     }
@@ -62,6 +57,8 @@ class Permission extends Component implements WithNavigation
             AdminElement::text('name', 'Name'),
             AdminElement::text('display_name', 'Display Name'),
             AdminElement::textarea('description', 'Description')->setRows(5),
+            AdminElement::number('test', 'Test'),
+            AdminElement::textarea('text', 'Text'),
         ]);
     }
 
