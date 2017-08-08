@@ -43,7 +43,7 @@ class Permission extends Component implements WithNavigation
                 AdminColumn::text('name', 'Name')->setWidth(120),
                 AdminColumn::text('display_name', 'Display Name')->setWidth(120),
                 AdminColumn::datetime('created_at', 'Created At'),
-            ])->disablePagination();
+            ]);
 
         return $view;
     }
