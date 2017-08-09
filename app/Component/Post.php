@@ -34,8 +34,8 @@ class Post extends Component implements WithNavigation
     public function callEdit()
     {
         return AdminForm::form()->setElements([
-            AdminElement::text('name', 'Name'),
-            AdminElement::textarea('content', 'Content')->setRows(5),
+            AdminElement::text('name', 'Name')->required('必填')->unique('唯一'),
+            AdminElement::textarea('content', 'Content')->setRows(5)->required('Content必填'),
         ]);
     }
 
