@@ -6,11 +6,9 @@ namespace App\Component;
 use AdminColumn;
 use AdminView;
 use Sco\Admin\Component\Component;
-use Sco\Admin\Contracts\WithNavigation;
 
-class User extends Component implements WithNavigation
+class User extends Component
 {
-
     protected $permissionObserver = \App\Observers\UserObserver::class;
 
     protected $title = '用户';

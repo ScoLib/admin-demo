@@ -8,13 +8,9 @@ use AdminElement;
 use AdminForm;
 use AdminView;
 use Sco\Admin\Component\Component;
-use Sco\Admin\Component\Concerns\HasNavigation;
-use Sco\Admin\Contracts\WithNavigation;
 
-class Role extends Component implements WithNavigation
+class Role extends Component
 {
-    use HasNavigation;
-
     protected $permissionObserver = \App\Observers\RoleObserver::class;
 
     protected $title = '角色';

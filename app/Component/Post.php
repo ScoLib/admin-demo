@@ -9,9 +9,8 @@ use AdminForm;
 use AdminView;
 use App\Observers\PostObserver;
 use Sco\Admin\Component\Component;
-use Sco\Admin\Contracts\WithNavigation;
 
-class Post extends Component implements WithNavigation
+class Post extends Component
 {
     protected $permissionObserver = PostObserver::class;
 
