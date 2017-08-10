@@ -53,8 +53,6 @@ class Permission extends Component
             AdminElement::text('name', 'Name'),
             AdminElement::text('display_name', 'Display Name'),
             AdminElement::textarea('description', 'Description')->setRows(5),
-            AdminElement::number('test', 'Test'),
-            AdminElement::textarea('text', 'Text'),
         ]);
     }
 
