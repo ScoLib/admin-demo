@@ -31,7 +31,7 @@ class User extends Component
     public function callView()
     {
         $view = AdminView::table();
-        $view->with(['roles']);
+        $view->with('roles');
         $view->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
             AdminColumn::text('name', 'Name')->setWidth(120),
