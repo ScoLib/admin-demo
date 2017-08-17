@@ -35,8 +35,8 @@ class Permission extends Component
     {
         $view = AdminView::table()
             ->setColumns([
-                AdminColumn::text('id', 'ID')->setWidth(80),
-                AdminColumn::text('name', 'Name')->setWidth(120),
+                AdminColumn::text('id', 'ID')->setWidth(80)->isSortable(),
+                AdminColumn::link('name', 'Name')->setWidth(120),
                 AdminColumn::text('display_name', 'Display Name')->setWidth(120),
                 AdminColumn::datetime('created_at', 'Created At'),
             ]);
