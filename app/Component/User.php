@@ -4,6 +4,8 @@
 namespace App\Component;
 
 use AdminColumn;
+use AdminElement;
+use AdminForm;
 use AdminView;
 use Sco\Admin\Component\Component;
 
@@ -34,6 +36,7 @@ class User extends Component
         $view->with('roles');
         $view->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
+            AdminColumn::image('avatar', 'Avatar'),
             AdminColumn::text('name', 'Name')->setWidth(120),
             AdminColumn::text('email', 'Email')->setWidth(120),
             AdminColumn::lists('roles.display_name', 'Display Name')->setWidth(200),
@@ -45,11 +48,16 @@ class User extends Component
 
     public function callEdit()
     {
-
+        return AdminForm::form()->setElements([
+            AdminElement::text('name', 'Name')->required(),
+            AdminElement::email('email', 'Email')->required(),
+            AdminElement::password('password', 'Password'),
+            AdminElement::file('avatar', 'Avatar'),
+        ]);
     }
 
     public function callCreate()
     {
-
+        return $this->callEdit();
     }
 }
