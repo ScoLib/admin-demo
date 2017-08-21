@@ -49,7 +49,7 @@ class User extends Component
     public function callEdit()
     {
         return AdminForm::form()->setElements([
-            AdminElement::text('name', 'Name')->required(),
+            AdminElement::file('name', 'Name'),
             AdminElement::email('email', 'Email')->required(),
             AdminElement::password('password', 'Password'),
             AdminElement::file('avatar', 'Avatar'),
