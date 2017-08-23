@@ -49,7 +49,7 @@ class User extends Component
     public function callEdit()
     {
         return AdminForm::form()->setElements([
-            AdminElement::file('name', 'Name'),
+            AdminElement::file('name', 'Name')->setFileSizeLimit(2 * 1024)->setFileUploadsLimit(2)->isMultiple(),
             AdminElement::email('email', 'Email')->required(),
             AdminElement::password('password', 'Password'),
             AdminElement::file('avatar', 'Avatar'),
