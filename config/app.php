@@ -180,6 +180,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+
+        Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
     ],
 
     /*

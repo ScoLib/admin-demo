@@ -36,7 +36,7 @@ class User extends Component
         $view->with('roles');
         $view->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
-            AdminColumn::image('avatar', 'Avatar'),
+            AdminColumn::image('avatar', 'Avatar')->setDisk('public'),
             AdminColumn::text('name', 'Name')->setWidth(120),
             AdminColumn::text('email', 'Email')->setWidth(120),
             AdminColumn::lists('roles.display_name', 'Display Name')->setWidth(200),
@@ -49,7 +49,12 @@ class User extends Component
     public function callEdit()
     {
         return AdminForm::form()->setElements([
-            AdminElement::file('name', 'Name')->setFileSizeLimit(2 * 1024)->setFileUploadsLimit(2)->isMultiple(),
+            AdminElement::file('name', 'Name')
+                ->setFileSizeLimit(2 * 1024)
+                ->setFileUploadsLimit(2)
+                ->pictureCardListType()
+                ->setDisk('qiniu'),
+
             AdminElement::email('email', 'Email')->required(),
             AdminElement::password('password', 'Password'),
             AdminElement::file('avatar', 'Avatar'),
