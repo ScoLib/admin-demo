@@ -52,12 +52,15 @@ class User extends Component
             AdminElement::file('name', 'Name')
                 ->setFileSizeLimit(2 * 1024)
                 ->setFileUploadsLimit(2)
-                ->pictureCardListType()
-                ->setDisk('qiniu'),
+                ->enableMultiSelect()
+                ->pictureCardListType(),
 
             AdminElement::email('email', 'Email')->required(),
             AdminElement::password('password', 'Password'),
-            AdminElement::file('avatar', 'Avatar'),
+            AdminElement::image('avatar', 'Avatar')
+                ->disableFileList()
+                ->pictureCardListType()
+            ,
         ]);
     }
 
