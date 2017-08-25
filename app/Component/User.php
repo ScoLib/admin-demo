@@ -50,12 +50,13 @@ class User extends Component
     public function callEdit()
     {
         return AdminForm::form()->setElements([
-            AdminElement::file('name', 'Name')->required(),
-            AdminElement::images('email', 'Email')->required()->cardListType(),
+            AdminElement::text('name', 'Name')->required()->unique(),
+            AdminElement::email('email', 'Email')->required()->unique(),
             AdminElement::password('password', 'Password')->required(),
-            AdminElement::image('avatar', 'Avatar')->setUploadFileNameRule(function (UploadedFile $file) {
-                return uniqid() . '.' . $file->guessExtension();
-            }),
+            AdminElement::image('avatar', 'Avatar')
+                ->setUploadFileNameRule(function (UploadedFile $file) {
+                    return uniqid() . '.' . $file->guessExtension();
+                }),
         ]);
     }
 
