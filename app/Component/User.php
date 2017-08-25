@@ -7,6 +7,7 @@ use AdminColumn;
 use AdminElement;
 use AdminForm;
 use AdminView;
+use Illuminate\Http\UploadedFile;
 use Sco\Admin\Component\Component;
 
 class User extends Component
@@ -49,18 +50,12 @@ class User extends Component
     public function callEdit()
     {
         return AdminForm::form()->setElements([
-            AdminElement::file('name', 'Name')
-                ->setFileSizeLimit(2 * 1024)
-                ->setFileUploadsLimit(2)
-                ->enableMultiSelect(),
-
-            AdminElement::images('email', 'Email')
-                ->required()
-                ->enableMultiSelect()
-                ->cardListType(),
-
-            AdminElement::password('password', 'Password'),
-            AdminElement::image('avatar', 'Avatar'),
+            AdminElement::file('name', 'Name')->required(),
+            AdminElement::images('email', 'Email')->required()->cardListType(),
+            AdminElement::password('password', 'Password')->required(),
+            AdminElement::image('avatar', 'Avatar')->setUploadFileNameRule(function (UploadedFile $file) {
+                return uniqid() . '.' . $file->guessExtension();
+            }),
         ]);
     }
 
