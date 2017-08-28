@@ -50,13 +50,13 @@ class User extends Component
     public function callEdit()
     {
         return AdminForm::form()->setElements([
-            AdminElement::text('name', 'Name')->required()->unique(),
+            AdminElement::text('name', 'Name')->required()->unique()->addValidationRule('max:10'),
             AdminElement::email('email', 'Email')->required()->unique(),
             AdminElement::password('password', 'Password')->required(),
             AdminElement::image('avatar', 'Avatar')
                 ->setUploadFileNameRule(function (UploadedFile $file) {
                     return uniqid() . '.' . $file->guessExtension();
-                }),
+                })->setMaxFileSize(2 * 1024),
         ]);
     }
 
