@@ -41,7 +41,9 @@ class Post extends Component
             AdminElement::select('category_id', '分类', Category::class)
                 ->setOptionsLabelAttribute('name')
                 ->required(),
-            AdminElement::textarea('content', 'Content')->setRows(5)->required('Content必填'),
+            AdminElement::textarea('content', 'Content')
+                ->setRows(5)
+                ->required('Content必填'),
             AdminElement::number('order', 'Order')->setMax(200)->setStep(2),
         ]);
     }
