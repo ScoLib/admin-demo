@@ -75,7 +75,7 @@ mix.webpackConfig({
         `public/${adminPublicPath}css/app.css`
     );
 
-if (mix.config.inProduction) {
+if (mix.inProduction()) {
     mix.version();
 }
 

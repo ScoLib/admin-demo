@@ -45,6 +45,8 @@ class Post extends Component
                 ->setRows(5)
                 ->required('Content必填'),
             AdminElement::number('order', 'Order')->setMax(200)->setStep(2),
+            AdminElement::elswitch('is_excellent', '推荐')->setText('是', '否'),
+            AdminElement::datetime('created_at', '创建时间'),
         ]);
     }
 

@@ -16,9 +16,10 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
-            $table->unsignedInteger('category_id');
+            $table->unsignedInteger('category_id')->default(0);
             $table->text('content');
-            $table->tinyInteger('order');
+            $table->tinyInteger('order')->default(0);
+            $table->enum('is_excellent', ['yes', 'no'])->default('no');
             $table->timestamps();
             $table->softDeletes();
         });
