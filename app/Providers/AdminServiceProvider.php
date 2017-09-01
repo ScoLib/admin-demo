@@ -17,7 +17,7 @@ class AdminServiceProvider extends ServiceProvider
             ->findById('system')
             ->addPage([
                 'title' => '操作日志',
-                'url'   => url('admin/logs'),
+                'url'   => route('admin.logs', [], false),
             ]);
     }
 

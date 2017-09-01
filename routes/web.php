@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group([
     'prefix' => config('admin.url_prefix'),
     'as'     => 'admin.',
-    'middleware' => ['auth', 'admin.phptojs', 'admin.can.route'],
+    'middleware' => ['auth', 'admin.can.route'],
 ], function () {
     Route::get('logs', [
         'as'   => 'logs',
