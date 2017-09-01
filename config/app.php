@@ -167,8 +167,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Barryvdh\Debugbar\ServiceProvider::class,
-        Sco\Admin\Providers\AdminServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -179,6 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Sco\Admin\Providers\AdminServiceProvider::class,
+        \App\Providers\AdminServiceProvider::class,
     ],
 
     /*

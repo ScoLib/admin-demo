@@ -15,7 +15,7 @@
         "scolib/laravel-action-log": "dev-master"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^2.3",
+        "barryvdh/laravel-debugbar": "^3.0",
         "barryvdh/laravel-ide-helper": "^2.2",
         "doctrine/dbal": "^2.5",
         "filp/whoops": "~2.0",

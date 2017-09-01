@@ -21,3 +21,20 @@ Route::get('/route', 'Controller@getRoute');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group([
+    'prefix' => config('admin.url_prefix'),
+    'as'     => 'admin.',
+    'middleware' => ['auth', 'admin.can.route'],
+], function () {
+    Route::get('logs', [
+        'as'   => 'logs',
+        'uses' => function () {
+            return view('admin::app');
+        },
+    ]);
+    Route::get('logs/list', [
+        'as'   => 'logs.list',
+        'uses' => 'Admin\ActionLogController@getList',
+    ]);
+});
