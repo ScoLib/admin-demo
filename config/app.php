@@ -169,7 +169,6 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Sco\Admin\Providers\AdminServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -180,6 +179,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+
+        Sco\Admin\Providers\AdminServiceProvider::class,
+        \App\Providers\AdminServiceProvider::class,
 
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
     ],
