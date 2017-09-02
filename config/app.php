@@ -177,8 +177,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Sco\Admin\Providers\AdminServiceProvider::class,
-        \App\Providers\AdminServiceProvider::class,
     ],
 
     /*
