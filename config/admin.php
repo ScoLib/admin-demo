@@ -34,7 +34,7 @@ return [
             'pages'    => [
                 [
                     'title' => '操作日志',
-                    'url'   => 'admin/logs',
+                    'url'   => '/admin/logs',
                 ]
             ],
         ],

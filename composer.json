@@ -61,7 +61,7 @@
             "php artisan ide-helper:meta",
             "php artisan optimize",
             "php artisan vendor:publish --provider=\"Sco\\Admin\\Providers\\ResourcesServiceProvider\" --force",
-            "php artisan migrate:refresh",
+            "php artisan migrate:fresh",
             "php artisan db:seed --class=AdminTableSeeder",
             "php artisan cache:clear"
         ]
