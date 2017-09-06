@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    dd(Route::getRoutes());
     return view('welcome');
 });
 
-Route::get('/route', 'Controller@getRoute');
+Route::get('/route', function () {
+    dd(Route::getRoutes());
+});
 
 Auth::routes();
 
@@ -38,3 +39,5 @@ Route::group([
         'uses' => 'Admin\ActionLogController@getList',
     ]);
 });
+
+Admin::routes();

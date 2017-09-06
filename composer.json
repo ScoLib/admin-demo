@@ -62,6 +62,7 @@
             "php artisan optimize",
             "php artisan vendor:publish --provider=\"Sco\\Admin\\Providers\\ResourcesServiceProvider\" --force",
             "php artisan migrate:fresh",
+            "php artisan db:seed",
             "php artisan db:seed --class=AdminTableSeeder",
             "php artisan cache:clear"
         ]
