@@ -5,7 +5,6 @@
  * a role & permission management solution for Laravel.
  *
  * @license MIT
- * @package Zizaco\Entrust
  */
 
 return [
@@ -19,7 +18,7 @@ return [
     | the role if it is in a different namespace.
     |
     */
-    'role' => \Sco\Admin\Models\Role::class,
+    'role' => 'App\Role',
 
     /*
     |--------------------------------------------------------------------------
@@ -73,7 +72,7 @@ return [
     | Update the permission if it is in a different namespace.
     |
     */
-    'permission' => \Sco\Admin\Models\Permission::class,
+    'permission' => 'App\Permission',
 
     /*
     |--------------------------------------------------------------------------

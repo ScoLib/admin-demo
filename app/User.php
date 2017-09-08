@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 /**
  * App\User
@@ -27,7 +28,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, EntrustUserTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -46,4 +47,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $visible = ['id', 'name', 'email', 'created_at', 'roles'];
+
+    protected $guarded = ['created_at', 'updated_at'];
+
+    public function setPasswordAttribute($value)
+    {
+        if (empty($value)) {
+            return;
+        }
+        $this->attributes['password'] = bcrypt($value);
+    }
 }

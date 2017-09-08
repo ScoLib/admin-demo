@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \Sco\Admin\Models\User::class,
+            'model' => \App\User::class,
         ],
 
         // 'users' => [
