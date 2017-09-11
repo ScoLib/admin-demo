@@ -6,12 +6,13 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "jenssegers/agent": "^2.5",
         "fideloper/proxy": "~3.3",
+        "jenssegers/agent": "^2.5",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "overtrue/laravel-filesystem-qiniu": "^0.0.3",
         "scolib/admin": "1.1.x@dev",
+        "scolib/entrust": "dev-master",
         "scolib/laravel-action-log": "dev-master"
     },
     "require-dev": {

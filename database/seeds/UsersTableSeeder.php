@@ -18,5 +18,10 @@ class UsersTableSeeder extends Seeder
             $user->save();
             $user->attachRole($role);
         }
+
+        $test = (new $roleModelName())->where('name', 'test')->firstOrFail();
+        factory(\App\User::class, 10)->create()->each(function ($u) use ($test) {
+            $u->attachRole($test);
+        });
     }
 }

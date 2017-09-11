@@ -11,9 +11,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $def = new \App\Category();
-        $def->name = '默认';
-        $def->slug = 'default';
-        $def->save();
+        factory(\App\Category::class, 3)->create();
     }
 }

@@ -40,7 +40,7 @@ class User extends Component
             AdminColumn::image('avatar', 'Avatar')->setDisk('public'),
             AdminColumn::text('name', 'Name')->setWidth(120),
             AdminColumn::text('email', 'Email')->setWidth(120),
-            AdminColumn::lists('roles.display_name', 'Display Name')->setWidth(200),
+            AdminColumn::tags('roles.display_name', 'Display Name')->setWidth(200),
             AdminColumn::datetime('created_at', 'Created At')->setFormat('humans'),
         ]);
 
