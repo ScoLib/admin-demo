@@ -12,15 +12,15 @@ class ActionLogController extends Controller
     public function getList(Request $request)
     {
         $ActionLog = new Factory();
-        if ($request->has('user_id')) {
+        if ($request->filled('user_id')) {
             $ActionLog = $ActionLog->whereUserId(intval($request->input('user_id')));
         }
 
-        if ($request->has('client_ip')) {
+        if ($request->filled('client_ip')) {
             $ActionLog = $ActionLog->whereClientIp($request->input('client_ip'));
         }
 
-        if ($request->has('type')) {
+        if ($request->filled('type')) {
             $ActionLog = $ActionLog->whereType($request->input('type'));
         }
 

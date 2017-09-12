@@ -13,7 +13,7 @@ return [
      * Update the User if it is in a different namespace.
      *
      */
-    'user' => \Sco\Admin\Models\User::class,
+    'user' => \App\User::class,
 
     /**
      * ActionLog user foreign key

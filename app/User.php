@@ -52,6 +52,13 @@ class User extends Authenticatable
 
     protected $guarded = ['created_at', 'updated_at'];
 
+    protected $dispatchesEvents = [
+        'created'   => \Sco\ActionLog\Events\ModelWasCreated::class,
+        'deleted'   => \Sco\ActionLog\Events\ModelWasDeleted::class,
+        'restored'  => \Sco\ActionLog\Events\ModelWasRestored::class,
+        'updated'   => \Sco\ActionLog\Events\ModelWasUpdated::class,
+    ];
+
     public function setPasswordAttribute($value)
     {
         if (empty($value)) {

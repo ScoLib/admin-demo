@@ -27,10 +27,11 @@ class Post extends Model
 {
     use SoftDeletes;
 
-    protected $events = [
-        'created'  => \Sco\ActionLog\Events\ModelWasCreated::class,
-        'updated'  => \Sco\ActionLog\Events\ModelWasUpdated::class,
-        'deleted'  => \Sco\ActionLog\Events\ModelWasDeleted::class,
+    protected $dispatchesEvents = [
+        'created'   => \Sco\ActionLog\Events\ModelWasCreated::class,
+        'deleted'   => \Sco\ActionLog\Events\ModelWasDeleted::class,
+        'restored'  => \Sco\ActionLog\Events\ModelWasRestored::class,
+        'updated'   => \Sco\ActionLog\Events\ModelWasUpdated::class,
     ];
 
     public function category()

@@ -21,5 +21,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Category extends Model
 {
-    //
+    protected $dispatchesEvents = [
+        'created'   => \Sco\ActionLog\Events\ModelWasCreated::class,
+        'deleted'   => \Sco\ActionLog\Events\ModelWasDeleted::class,
+        'restored'  => \Sco\ActionLog\Events\ModelWasRestored::class,
+        'updated'   => \Sco\ActionLog\Events\ModelWasUpdated::class,
+    ];
+
 }
