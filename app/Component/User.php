@@ -57,6 +57,7 @@ class User extends Component
                 ->setUploadFileNameRule(function (UploadedFile $file) {
                     return uniqid() . '.' . $file->guessExtension();
                 })->setMaxFileSize(2 * 1024),
+            AdminElement::select('roles', 'Roles', \App\Role::class)->setOptionsLabelAttribute('name'),
         ]);
     }
 

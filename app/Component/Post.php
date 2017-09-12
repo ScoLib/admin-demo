@@ -38,7 +38,7 @@ class Post extends Component
     {
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name')->required('必填')->unique('唯一'),
-            AdminElement::checkbox('category_id', '分类', Category::class)
+            AdminElement::select('category_id', '分类', Category::class)
                 ->setOptionsLabelAttribute('name')
                 ->required(),
             AdminElement::textarea('content', 'Content')
