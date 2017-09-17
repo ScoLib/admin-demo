@@ -50,7 +50,7 @@ class User extends Component
     public function callEdit()
     {
         return AdminForm::form()->setElements([
-            AdminElement::text('name', 'Name')->required()->unique()->addValidationRule('max:10'),
+            AdminElement::text('name', 'Name')->required()->unique()->setMaxLength('10'),
             AdminElement::email('email', 'Email')->required()->unique(),
             AdminElement::password('password', 'Password')->required(),
             AdminElement::image('avatar', 'Avatar')
