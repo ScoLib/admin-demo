@@ -16,10 +16,6 @@ class User extends Component
 
     protected $title = '用户';
 
-    public function boot()
-    {
-        //$this->title = trans('admin::admin.common.dashboard');
-    }
 
     public function addToNavigation($priority = 100, $badge = null)
     {
