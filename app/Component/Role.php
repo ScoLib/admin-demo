@@ -50,6 +50,8 @@ class Role extends Component
             AdminElement::text('name', 'Name'),
             AdminElement::text('display_name', 'Display Name'),
             AdminElement::textarea('description', 'Description')->setRows(5),
+            AdminElement::tree('perms', 'Perms', \App\Permission::class)->setOptionsLabelAttribute('display_name')
+                ->required(),
         ]);
     }
 
