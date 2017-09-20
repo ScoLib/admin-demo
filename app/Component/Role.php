@@ -47,8 +47,8 @@ class Role extends Component
     public function callEdit()
     {
         return AdminForm::form()->setElements([
-            AdminElement::text('name', 'Name'),
-            AdminElement::text('display_name', 'Display Name'),
+            AdminElement::text('name', 'Name')->required()->unique(),
+            AdminElement::text('display_name', 'Display Name')->required(),
             AdminElement::textarea('description', 'Description')->setRows(5),
             AdminElement::tree('perms', 'Perms', \App\Permission::class)->setOptionsLabelAttribute('display_name')
                 ->required(),

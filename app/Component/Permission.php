@@ -33,13 +33,16 @@ class Permission extends Component
 
     public function callView()
     {
-        $view = AdminView::table()
-            ->setColumns([
-                AdminColumn::text('id', 'ID')->setWidth(80)->isSortable(),
-                AdminColumn::link('name', 'Name')->setWidth(120),
-                AdminColumn::text('display_name', 'Display Name')->setWidth(120),
-                AdminColumn::datetime('created_at', 'Created At'),
-            ]);
+        $view = AdminView::table();
+        //$view->with('roles');
+
+        $view->setColumns([
+            AdminColumn::text('id', 'ID')->setWidth(80)->isSortable(),
+            AdminColumn::link('name', 'Name')->setWidth(120),
+            AdminColumn::text('display_name', 'Display Name')->setWidth(120),
+            AdminColumn::datetime('created_at', 'Created At'),
+            //AdminColumn::tags('roles.display_name', 'Roles'),
+        ]);
 
         return $view;
     }
