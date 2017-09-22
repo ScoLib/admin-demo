@@ -50,7 +50,35 @@ class Role extends Component
             AdminElement::text('name', 'Name')->required()->unique(),
             AdminElement::text('display_name', 'Display Name')->required(),
             AdminElement::textarea('description', 'Description')->setRows(5),
-            AdminElement::tree('perms', 'Perms', \App\Permission::class)->setOptionsLabelAttribute('display_name')
+            /*AdminElement::tree('description', 'Description', [
+                [
+                    'id' => 1,
+                    'label' => '访问后台',
+                    'parent_id' => '',
+                ],
+                [
+                    'id' => 2,
+                    'label' => '查看用户',
+                    'parent_id' => '1',
+
+                ],[
+                    'id' => 3,
+                    'label' => '创建用户',
+                    'parent_id' => '2',
+
+                ],[
+                    'id' => 4,
+                    'label' => '编辑用户',
+                    'parent_id' => '1',
+
+                ],[
+                    'id' => 5,
+                    'label' => '删除用户',
+                    'parent_id' => '4',
+
+                ]]),*/
+            AdminElement::tree('perms', 'Perms', \App\Permission::class)
+                ->setNodesModelLabelAttribute('display_name')
                 ->required(),
         ]);
     }
