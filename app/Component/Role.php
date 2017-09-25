@@ -27,7 +27,7 @@ class Role extends Component
             ->getPages()
             ->findById('users')
             ->addPage($page)
-            ->setIcon('fa fa-user-plus');
+            ->setIcon('fa-user-plus');
     }
 
     public function callView()

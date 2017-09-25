@@ -28,7 +28,7 @@ class User extends Component
             ->getPages()
             ->findById('users')
             ->addPage($page)
-            ->setIcon('fa fa-user');
+            ->setIcon('fa-user');
     }
 
     public function callView()

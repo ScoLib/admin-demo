@@ -17,6 +17,8 @@ class Post extends Component
 
     protected $title = '日志';
 
+    protected $icon = 'fa-book';
+
     public function callView()
     {
         $view = AdminView::table();
