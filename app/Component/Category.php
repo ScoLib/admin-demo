@@ -35,8 +35,8 @@ class Category extends Component
     public function callEdit()
     {
         return AdminForm::form()->setElements([
-            AdminElement::text('name', 'Name'),
-            AdminElement::text('slug', 'Slug'),
+            AdminElement::text('name', 'Name')->required(),
+            AdminElement::text('slug', 'Slug')->required(),
             AdminElement::select('pid', '父类', \App\Category::class)
                 ->setOptionsLabelAttribute('name'),
         ]);
