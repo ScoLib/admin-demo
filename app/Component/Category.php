@@ -18,6 +18,7 @@ class Category extends Component
     {
         $view = AdminView::table();
         //$view->with('roles');
+        $view->orderBy('id', 'desc');
 
         $view->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80)->isSortable(),
@@ -38,7 +39,9 @@ class Category extends Component
             AdminElement::text('name', 'Name')->required(),
             AdminElement::text('slug', 'Slug')->required(),
             AdminElement::select('pid', '父类', \App\Category::class)
-                ->setOptionsLabelAttribute('name'),
+                ->addOption(0, '顶级分类')
+                ->setOptionsLabelAttribute('name')
+                ->setDefaultValue(0),
         ]);
     }
 
