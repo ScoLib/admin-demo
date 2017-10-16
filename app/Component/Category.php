@@ -17,7 +17,6 @@ class Category extends Component
     public function callView()
     {
         $view = AdminView::table();
-        //$view->with('roles');
         $view->orderBy('id', 'desc');
 
         $view->setColumns([
@@ -38,10 +37,6 @@ class Category extends Component
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name')->required(),
             AdminElement::text('slug', 'Slug')->required(),
-            AdminElement::select('pid', '父类', \App\Category::class)
-                ->addOption(0, '顶级分类')
-                ->setOptionsLabelAttribute('name')
-                ->setDefaultValue(0),
         ]);
     }
 

@@ -27,5 +27,4 @@ class Category extends Model
         'restored'  => \Sco\ActionLog\Events\ModelWasRestored::class,
         'updated'   => \Sco\ActionLog\Events\ModelWasUpdated::class,
     ];
-
 }

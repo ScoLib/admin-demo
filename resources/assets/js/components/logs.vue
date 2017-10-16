@@ -65,7 +65,7 @@
                         <el-table-column
                                 label="用户"
                                 width="100">
-                            <template scope="scope">
+                            <template slot-scope="scope">
                                 {{ scope.row.user == null ? 'guest' : scope.row.user.name }} / {{ scope.row.user_id }}
                             </template>
 
