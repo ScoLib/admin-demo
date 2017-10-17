@@ -16,15 +16,8 @@ class Category extends Component
 
     public function callView()
     {
-        $view = AdminView::table();
+        $view = AdminView::tree();
         $view->orderBy('id', 'desc');
-
-        $view->setColumns([
-            AdminColumn::text('id', 'ID')->setWidth(80)->isSortable(),
-            AdminColumn::link('name', 'Name')->setWidth(120),
-            AdminColumn::text('slug', 'Slug')->setWidth(120),
-            AdminColumn::datetime('created_at', 'Created At'),
-        ]);
 
         return $view;
     }
