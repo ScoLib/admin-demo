@@ -63,6 +63,7 @@ mix.webpackConfig({
         'vue-router',
         'element-ui',
         'jquery-slimscroll',
+        'nestable2',
         'vue-i18n',
         'vuex'
     ])
