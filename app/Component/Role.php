@@ -11,6 +11,10 @@ use Sco\Admin\Component\Component;
 
 class Role extends Component
 {
+    protected $icon = 'fa-user-plus';
+
+    protected $parentPageId = 'users';
+
     protected $permissionObserver = \App\Observers\RoleObserver::class;
 
     protected $title = '角色';
@@ -18,16 +22,6 @@ class Role extends Component
     public function boot()
     {
         //$this->title = trans('admin::admin.common.dashboard');
-    }
-
-    public function addToNavigation($priority = 100, $badge = null)
-    {
-        $page = $this->makePage($priority, $badge);
-        $this->getNavigation()
-            ->getPages()
-            ->findById('users')
-            ->addPage($page)
-            ->setIcon('fa-user-plus');
     }
 
     public function callView()

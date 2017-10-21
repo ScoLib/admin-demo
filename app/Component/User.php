@@ -12,6 +12,10 @@ use Sco\Admin\Component\Component;
 
 class User extends Component
 {
+    protected $icon = 'fa-user';
+
+    protected $parentPageId = 'users';
+
     protected $permissionObserver = \App\Observers\UserObserver::class;
 
     protected $title = '用户';
@@ -19,16 +23,6 @@ class User extends Component
     public function boot()
     {
         //$this->title = trans('admin::admin.common.dashboard');
-    }
-
-    public function addToNavigation($priority = 100, $badge = null)
-    {
-        $page = $this->makePage($priority, $badge);
-        $this->getNavigation()
-            ->getPages()
-            ->findById('users')
-            ->addPage($page)
-            ->setIcon('fa-user');
     }
 
     public function callView()
