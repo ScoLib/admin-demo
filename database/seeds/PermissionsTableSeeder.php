@@ -28,6 +28,11 @@ class PermissionsTableSeeder extends Seeder
         $this->storePermission('edit_category', '编辑分类');
         $this->storePermission('delete_category', '删除分类');
 
+        $this->storePermission('view_picture', '查看图片');
+        $this->storePermission('create_picture', '创建图片');
+        $this->storePermission('edit_picture', '编辑图片');
+        $this->storePermission('delete_picture', '删除图片');
+
         $this->storePermission('admin.logs', '日志');
         $this->storePermission('admin.logs.list', '日志列表');
 

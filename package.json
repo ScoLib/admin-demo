@@ -25,7 +25,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "nestable2": "^1.6.0",
-    "v-img": "0.0.8",
+    "v-viewer": "^0.2.0",
     "vue": "^2.*",
     "vue-i18n": "^6.*",
     "vue-progressbar": "^0.*",

@@ -2,7 +2,6 @@
 
 namespace App\Component;
 
-use AdminColumn;
 use AdminElement;
 use AdminForm;
 use AdminView;

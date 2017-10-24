@@ -25,6 +25,7 @@ return [
         \App\Permission::class => \App\Component\Permission::class,
         \App\Category::class   => \App\Component\Category::class,
         \App\Post::class       => \App\Component\Post::class,
+        \App\Picture::class    => \App\Component\Picture::class,
     ],
     'navigation' => [
         [
