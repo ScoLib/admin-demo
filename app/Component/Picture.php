@@ -24,12 +24,7 @@ class Picture extends Component
 
     public function callView()
     {
-        $view = AdminView::table()->setColumns([
-            AdminColumn::text('id', 'ID')->setWidth(80),
-            AdminColumn::text('name', 'Name')->setWidth(120),
-            AdminColumn::image('path', '图片')->setWidth(120),
-            AdminColumn::datetime('created_at', 'Created At'),
-        ])->disablePagination();
+        $view = AdminView::image()->setImagePathAttribute('path');
         return $view;
     }
 
