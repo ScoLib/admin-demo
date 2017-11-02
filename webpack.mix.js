@@ -25,7 +25,7 @@ var adminPublicPath = 'vendor/admin/';
 mix.webpackConfig({
     output: {
         chunkFilename: `${adminPublicPath}js/[name]${
-            mix.config.inProduction ? '.[chunkhash].chunk.js' : '.chunk.js'
+            mix.inProduction() ? '.[chunkhash].chunk.js' : '.chunk.js'
         }`,
         publicPath: '/',
     },
