@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->string('name', 100);
             $table->unsignedInteger('category_id')->default(0);
             $table->text('content');
-            $table->tinyInteger('order')->default(0);
             $table->enum('is_excellent', ['yes', 'no'])->default('no');
             $table->timestamps();
             $table->softDeletes();

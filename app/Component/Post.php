@@ -46,7 +46,6 @@ class Post extends Component
             AdminElement::textarea('content', 'Content')
                 ->setRows(5)
                 ->required('Content必填'),
-            AdminElement::number('order', 'Order')->setMax(200)->setStep(2),
             AdminElement::elswitch('is_excellent', '推荐')->setText('是', '否'),
             AdminElement::datetimerange('created_at', 'updated_at', '起止时间')->required(),
         ]);

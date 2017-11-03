@@ -15,8 +15,8 @@ class Category extends Component
 
     public function callView()
     {
-        $view = AdminView::tree();
-        $view->orderBy('id', 'desc');
+        $view = AdminView::tree()->setTitleAttribute('name');
+        $view->orderBy('order');
 
         return $view;
     }
@@ -29,6 +29,7 @@ class Category extends Component
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name')->required(),
             AdminElement::text('slug', 'Slug')->required(),
+            AdminElement::number('order', 'Order')->setMax(200)->setStep(2),
         ]);
     }
 
