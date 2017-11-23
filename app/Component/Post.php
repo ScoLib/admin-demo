@@ -3,23 +3,43 @@
 
 namespace App\Component;
 
-use AdminColumn;
-use AdminElement;
-use AdminForm;
-use AdminView;
 use App\Category;
 use App\Observers\PostObserver;
 use Sco\Admin\Component\Component;
+use Sco\Admin\Contracts\Form\FormInterface;
+use Sco\Admin\Contracts\View\ViewInterface;
+use Sco\Admin\Facades\AdminColumn;
+use Sco\Admin\Facades\AdminElement;
+use Sco\Admin\Facades\AdminForm;
+use Sco\Admin\Facades\AdminView;
 
 class Post extends Component
 {
+    /**
+     * Permission observer class
+     *
+     * @var string
+     */
     protected $permissionObserver = PostObserver::class;
 
+    /**
+     * Navigator title
+     *
+     * @var string
+     */
     protected $title = '日志';
 
+    /**
+     * Navigator icon
+     *
+     * @var string
+     */
     protected $icon = 'fa-book';
 
-    public function callView()
+    /**
+     * @return \Sco\Admin\Contracts\View\ViewInterface
+     */
+    public function callView(): ViewInterface
     {
         $view = AdminView::table();
         $view->with('category');
@@ -36,7 +56,7 @@ class Post extends Component
     /**
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callEdit()
+    public function callEdit(): FormInterface
     {
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name')->required('必填')->unique('唯一'),
@@ -54,7 +74,7 @@ class Post extends Component
     /**
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callCreate()
+    public function callCreate(): FormInterface
     {
         return $this->callEdit();
     }
