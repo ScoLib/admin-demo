@@ -9,7 +9,7 @@ use Sco\Admin\Component\Component;
 
 class Category extends Component
 {
-    protected $permissionObserver = \App\Observers\CategoryObserver::class;
+    protected $observer = \App\Observers\CategoryObserver::class;
 
     protected $title = '分类';
 

@@ -16,14 +16,9 @@ class User extends Component
 
     protected $parentPageId = 'users';
 
-    protected $permissionObserver = \App\Observers\UserObserver::class;
+    protected $observer = \App\Observers\UserObserver::class;
 
     protected $title = '用户';
-
-    public function boot()
-    {
-        //$this->title = trans('admin::admin.common.dashboard');
-    }
 
     public function callView()
     {

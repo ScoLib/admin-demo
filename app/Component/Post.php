@@ -20,7 +20,7 @@ class Post extends Component
      *
      * @var string
      */
-    protected $permissionObserver = PostObserver::class;
+    protected $observer = PostObserver::class;
 
     /**
      * Navigator title

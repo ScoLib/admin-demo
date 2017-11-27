@@ -15,14 +15,9 @@ class Role extends Component
 
     protected $parentPageId = 'users';
 
-    protected $permissionObserver = \App\Observers\RoleObserver::class;
+    protected $observer = \App\Observers\RoleObserver::class;
 
     protected $title = '角色';
-
-    public function boot()
-    {
-        //$this->title = trans('admin::admin.common.dashboard');
-    }
 
     public function callView()
     {

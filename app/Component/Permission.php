@@ -15,14 +15,9 @@ class Permission extends Component
 
     protected $parentPageId = 'users';
 
-    protected $permissionObserver = \App\Observers\PermissionObserver::class;
+    protected $observer = \App\Observers\PermissionObserver::class;
 
     protected $title = '权限';
-
-    public function boot()
-    {
-        //$this->title = trans('admin::admin.common.dashboard');
-    }
 
     public function callView()
     {

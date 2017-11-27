@@ -13,14 +13,9 @@ class Picture extends Component
 {
     protected $icon = 'fa-picture-o';
 
-    protected $permissionObserver = \App\Observers\PictureObserver::class;
+    protected $observer = \App\Observers\PictureObserver::class;
 
     protected $title = '图片';
-
-    public function boot()
-    {
-        //$this->title = trans('admin::admin.common.dashboard');
-    }
 
     public function callView()
     {
