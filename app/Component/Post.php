@@ -36,6 +36,11 @@ class Post extends Component
      */
     protected $icon = 'fa-book';
 
+    public function model()
+    {
+        return \App\Post::class;
+    }
+
     /**
      * @return \Sco\Admin\Contracts\View\ViewInterface
      */

@@ -19,6 +19,11 @@ class Role extends Component
 
     protected $title = '角色';
 
+    public function model()
+    {
+        return \App\Role::class;
+    }
+
     public function callView()
     {
         $view = AdminView::table()->setColumns([

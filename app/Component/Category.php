@@ -13,6 +13,11 @@ class Category extends Component
 
     protected $title = '分类';
 
+    public function model()
+    {
+        return \App\Category::class;
+    }
+
     public function callView()
     {
         $view = AdminView::tree()->setTitleAttribute('name');
@@ -22,9 +27,11 @@ class Category extends Component
     }
 
     /**
+     * @param mixed $id
+     *
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callEdit()
+    public function callEdit($id)
     {
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name')->required(),

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
+use Sco\Admin\Facades\AdminNavigation;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,26 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        AdminNavigation::setFromArray([
+            [
+                'title'    => '系统管理',
+                'icon'     => 'fa-edit',
+                'priority' => 500,
+                'id'       => 'system',
+                'pages'    => [
+                    [
+                        'title' => '操作日志',
+                        'url'   => '/admin/logs',
+                    ],
+                ],
+            ],
+            [
+                'title'    => '用户管理',
+                'icon'     => 'fa-users',
+                'priority' => 600,
+                'badge'    => 'New',
+                'id'       => 'users',
+            ],
+        ]);
     }
 }

@@ -17,6 +17,11 @@ class Picture extends Component
 
     protected $title = '图片';
 
+    public function model()
+    {
+        return \App\Picture::class;
+    }
+
     public function callView()
     {
         $view = AdminView::image()->setImagePathAttribute('path');

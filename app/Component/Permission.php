@@ -19,6 +19,11 @@ class Permission extends Component
 
     protected $title = '权限';
 
+    public function model()
+    {
+        return \App\Permission::class;
+    }
+
     public function callView()
     {
         $view = AdminView::table();

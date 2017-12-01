@@ -20,6 +20,11 @@ class User extends Component
 
     protected $title = '用户';
 
+    public function model()
+    {
+        return \App\User::class;
+    }
+
     public function callView()
     {
         $view = AdminView::table();
