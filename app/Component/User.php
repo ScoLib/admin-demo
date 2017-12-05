@@ -38,19 +38,35 @@ class User extends Component
             AdminColumn::datetime('created_at', 'Created At')->setFormat('humans'),
         ]);
 
-        $view->setApply(function ($query) {
-            dump('sss');
-        });
-
-        $view->setApplies([
+        $view->setApplies(
+            function ($query) {
+                dump('sss');
+            },
             function ($query) {
                 dump('sss');
             },
             function ($query) {
                 dump('sss');
             }
+            );
+
+        $a = $view->addApply(function ($query, $b) {
+            dump('sss');
+        });
+
+        dump($view->getApplies());
+
+        $view->setScopes([
+            'unpublish', ['last', 3]
         ]);
 
+        // $view->setScopes(
+        //     'unpublish', ['last', 3]
+        // );
+
+        $a = $view->addScope('publish', 2);
+
+        dd($view->getScopes());
 
         return $view;
     }
