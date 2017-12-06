@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Component;
+namespace App\Components;
 
 use AdminColumn;
 use AdminElement;
@@ -9,6 +9,7 @@ use AdminForm;
 use AdminView;
 use Illuminate\Http\UploadedFile;
 use Sco\Admin\Component\Component;
+use Sco\Admin\Facades\AdminViewFilter;
 
 class User extends Component
 {
@@ -29,6 +30,7 @@ class User extends Component
     {
         $view = AdminView::table();
         $view->with('roles');
+
         $view->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
             AdminColumn::image('avatar', 'Avatar')->setDisk('public'),
@@ -36,6 +38,10 @@ class User extends Component
             AdminColumn::text('email', 'Email')->setWidth(120),
             AdminColumn::tags('roles.display_name', 'Display Name')->setWidth(200),
             AdminColumn::datetime('created_at', 'Created At')->setFormat('humans'),
+        ]);
+
+        $view->setFilters([
+            AdminViewFilter::input('id', 'ID'),
         ]);
 
         $view->setApplies(

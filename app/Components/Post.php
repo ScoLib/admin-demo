@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Component;
+namespace App\Components;
 
 use App\Category;
 use App\Observers\PostObserver;

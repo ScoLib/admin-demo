@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Component;
+namespace App\Components;
 
 use AdminColumn;
 use AdminElement;
