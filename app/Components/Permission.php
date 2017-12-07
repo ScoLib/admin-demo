@@ -43,7 +43,7 @@ class Permission extends Component
     /**
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callEdit()
+    public function callEdit($id)
     {
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name'),
@@ -57,6 +57,6 @@ class Permission extends Component
      */
     public function callCreate()
     {
-        return $this->callEdit();
+        return $this->callEdit(null);
     }
 }

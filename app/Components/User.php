@@ -41,10 +41,17 @@ class User extends Component
         ]);
 
         $view->setFilters([
-            AdminViewFilter::input('id', 'ID'),
+            AdminViewFilter::text('id', 'ID'),
+            AdminViewFilter::checkbox('role', '用户组', [
+                [
+                    'value' => 'admin',
+                    'label' => '管理员',
+                ]
+            ]),
+            AdminViewFilter::daterange('created_at', '注册起止时间'),
         ]);
 
-        $view->setApplies(
+        /*$view->setApplies(
             function ($query) {
                 dump('sss');
             },
@@ -72,7 +79,7 @@ class User extends Component
 
         $a = $view->addScope('publish', 2);
 
-        dd($view->getScopes());
+        dd($view->getScopes());*/
 
         return $view;
     }

@@ -45,6 +45,6 @@ class Category extends Component
      */
     public function callCreate()
     {
-        return $this->callEdit();
+        return $this->callEdit(null);
     }
 }

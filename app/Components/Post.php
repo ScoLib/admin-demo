@@ -53,6 +53,9 @@ class Post extends Component
             AdminColumn::text('name', 'Name')->setWidth(120),
             AdminColumn::text('category.name', 'Category')->setWidth(120),
             AdminColumn::text('content', 'Content')->setWidth(120),
+            AdminColumn::custom('publish', 'Published', function (\App\Post $post) {
+                return $post->published ? 'p' : 'u';
+            }),
             AdminColumn::datetime('created_at', 'Created At')->setWidth(135),
         ]);
         return $view;
@@ -72,6 +75,10 @@ class Post extends Component
                 ->setRows(5)
                 ->required('Content必填'),
             AdminElement::elswitch('is_excellent', '推荐')->setText('是', '否'),
+            AdminElement::checkbox('published', '发布', [
+                0 => '否',
+                1 => '是',
+            ])->enableShowCheckAll(),
             AdminElement::datetimerange('created_at', 'updated_at', '起止时间')->required(),
         ]);
     }
