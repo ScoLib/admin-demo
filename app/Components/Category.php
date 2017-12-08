@@ -2,10 +2,10 @@
 
 namespace App\Components;
 
-use AdminElement;
-use AdminForm;
-use AdminView;
 use Sco\Admin\Component\Component;
+use Sco\Admin\Facades\AdminElement;
+use Sco\Admin\Facades\AdminForm;
+use Sco\Admin\Facades\AdminView;
 
 class Category extends Component
 {

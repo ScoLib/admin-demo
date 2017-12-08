@@ -71,14 +71,21 @@ class Post extends Component
             AdminElement::select('category_id', '分类', Category::class)
                 ->setOptionsLabelAttribute('name')
                 ->required(),
-            AdminElement::textarea('content', 'Content')
+            /*AdminElement::textarea('content', 'Content')
                 ->setRows(5)
-                ->required('Content必填'),
-            AdminElement::elswitch('is_excellent', '推荐')->setText('是', '否'),
-            AdminElement::checkbox('published', '发布', [
-                0 => '否',
-                1 => '是',
-            ])->enableShowCheckAll(),
+                ->required('Content必填'),*/
+            /*AdminElement::checkbox('content', 'Content', [
+                'admin' => 'admin组',
+                'test' => 'test组',
+                'dev' => 'dev组',
+            ]),*/
+            AdminElement::multiselect('content', 'Content', [
+                'admin' => 'admin组',
+                'test' => 'test组',
+                'dev' => 'dev组',
+            ]),
+            AdminElement::elswitch('is_excellent', '推荐')->setTexts('是', '否'),
+            AdminElement::elswitch('published', '发布')->setValues('1', '0'),
             AdminElement::datetimerange('created_at', 'updated_at', '起止时间')->required(),
         ]);
     }

@@ -3,11 +3,11 @@
 
 namespace App\Components;
 
-use AdminColumn;
-use AdminElement;
-use AdminForm;
-use AdminView;
 use Sco\Admin\Component\Component;
+use Sco\Admin\Facades\AdminColumn;
+use Sco\Admin\Facades\AdminElement;
+use Sco\Admin\Facades\AdminForm;
+use Sco\Admin\Facades\AdminView;
 
 class Role extends Component
 {

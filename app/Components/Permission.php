@@ -3,11 +3,11 @@
 
 namespace App\Components;
 
-use AdminColumn;
-use AdminElement;
-use AdminForm;
-use AdminView;
 use Sco\Admin\Component\Component;
+use Sco\Admin\Facades\AdminColumn;
+use Sco\Admin\Facades\AdminElement;
+use Sco\Admin\Facades\AdminForm;
+use Sco\Admin\Facades\AdminView;
 
 class Permission extends Component
 {
@@ -30,7 +30,7 @@ class Permission extends Component
         //$view->with('roles');
 
         $view->setColumns([
-            AdminColumn::text('id', 'ID')->setWidth(80)->isSortable(),
+            AdminColumn::text('id', 'ID')->setWidth(80)->sortable(),
             AdminColumn::link('name', 'Name')->setWidth(120),
             AdminColumn::text('display_name', 'Display Name')->setWidth(120),
             AdminColumn::datetime('created_at', 'Created At'),

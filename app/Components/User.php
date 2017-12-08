@@ -3,12 +3,12 @@
 
 namespace App\Components;
 
-use AdminColumn;
-use AdminElement;
-use AdminForm;
-use AdminView;
 use Illuminate\Http\UploadedFile;
 use Sco\Admin\Component\Component;
+use Sco\Admin\Facades\AdminColumn;
+use Sco\Admin\Facades\AdminElement;
+use Sco\Admin\Facades\AdminForm;
+use Sco\Admin\Facades\AdminView;
 use Sco\Admin\Facades\AdminViewFilter;
 
 class User extends Component
@@ -46,7 +46,7 @@ class User extends Component
                 [
                     'value' => 'admin',
                     'label' => '管理员',
-                ]
+                ],
             ]),
             AdminViewFilter::daterange('created_at', '注册起止时间'),
         ]);
@@ -94,7 +94,11 @@ class User extends Component
                 ->setUploadFileNameRule(function (UploadedFile $file) {
                     return uniqid() . '.' . $file->guessExtension();
                 })->setMaxFileSize(2 * 1024),
-            AdminElement::multiselect('roles', 'Roles', \App\Role::class)->setOptionsLabelAttribute('name'),
+            AdminElement::checkbox('roles', 'Roles', \App\Role::class)
+                ->setOptionsLabelAttribute('display_name'),
+
+            /*AdminElement::multiselect('roles', 'Roles', \App\Role::class)
+                ->setOptionsLabelAttribute('display_name'),*/
         ]);
     }
 
