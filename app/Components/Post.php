@@ -12,6 +12,7 @@ use Sco\Admin\Facades\AdminColumn;
 use Sco\Admin\Facades\AdminElement;
 use Sco\Admin\Facades\AdminForm;
 use Sco\Admin\Facades\AdminView;
+use Sco\Admin\Facades\AdminViewFilter;
 
 class Post extends Component
 {
@@ -50,7 +51,7 @@ class Post extends Component
         $view->with('category');
         $view->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
-            AdminColumn::text('name', 'Name')->setWidth(120),
+            AdminColumn::text('title', 'Title')->setWidth(120),
             AdminColumn::text('category.name', 'Category')->setWidth(120),
             AdminColumn::text('content', 'Content')->setWidth(120),
             AdminColumn::custom('publish', 'Published', function (\App\Post $post) {
@@ -58,6 +59,9 @@ class Post extends Component
             }),
             AdminColumn::datetime('created_at', 'Created At')->setWidth(135),
         ]);
+        $view->addFilter(
+            AdminViewFilter::text('title', 'Title')
+        );
         return $view;
     }
 
@@ -67,7 +71,7 @@ class Post extends Component
     public function callEdit(): FormInterface
     {
         return AdminForm::form()->setElements([
-            AdminElement::text('name', 'Name')->required('必填')->unique('唯一'),
+            AdminElement::text('title', 'Title')->required('必填')->unique('唯一'),
             AdminElement::select('category_id', '分类', Category::class)
                 ->setOptionsLabelAttribute('name')
                 ->required(),

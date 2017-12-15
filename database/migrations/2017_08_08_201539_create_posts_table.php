@@ -15,7 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 100);
+            $table->string('title', 100);
             $table->unsignedInteger('category_id')->default(0);
             $table->text('content');
             $table->enum('is_excellent', ['yes', 'no'])->default('no');
