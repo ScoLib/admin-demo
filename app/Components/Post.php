@@ -60,7 +60,7 @@ class Post extends Component
             AdminColumn::datetime('created_at', 'Created At')->setWidth(135),
         ]);
         $view->addFilter(
-            AdminViewFilter::text('title', 'Title')
+            AdminViewFilter::text('title', 'Title')->setOperator('like')
         );
         return $view;
     }
