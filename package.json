@@ -24,6 +24,7 @@
     "laravel-mix": "^1.0",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "lodash": "^4.17.4",
     "nestable2": "^1.6.0",
     "v-viewer": "^0.2.1",
     "vue": "^2.5.7",

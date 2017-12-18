@@ -59,9 +59,10 @@ class Post extends Component
             }),
             AdminColumn::datetime('created_at', 'Created At')->setWidth(135),
         ]);
-        $view->addFilter(
-            AdminViewFilter::text('title', 'Title')->setOperator('like')
-        );
+        $view->setFilters([
+            AdminViewFilter::text('title', 'Title')->setOperator('like'),
+            AdminViewFilter::select('category.id', '分类', Category::class)->setOptionsLabelAttribute('name')
+        ]);
         return $view;
     }
 
