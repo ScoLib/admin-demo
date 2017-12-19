@@ -61,7 +61,13 @@ class Post extends Component
         ]);
         $view->setFilters([
             AdminViewFilter::text('title', 'Title')->setOperator('like'),
-            AdminViewFilter::select('category.id', '分类', Category::class)->setOptionsLabelAttribute('name')
+            AdminViewFilter::checkbox('category.id', '分类', Category::class)->setOptionsLabelAttribute('name'),
+            AdminViewFilter::daterange('created_at', '创建时间'),
+            AdminViewFilter::radio('published', '发布', [
+                // '' => '全部',
+                0 => '未发布',
+                1 => '已发布'
+            ])
         ]);
         return $view;
     }
