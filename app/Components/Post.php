@@ -54,9 +54,7 @@ class Post extends Component
             AdminColumn::text('title', 'Title')->setWidth(120),
             AdminColumn::text('category.name', 'Category')->setWidth(120),
             AdminColumn::text('content', 'Content')->setWidth(120),
-            AdminColumn::custom('publish', 'Published', function (\App\Post $post) {
-                return $post->published ? 'p' : 'u';
-            }),
+            AdminColumn::mapping('published', 'Published'),
             AdminColumn::datetime('created_at', 'Created At')->setWidth(135),
         ]);
         $view->setFilters([
@@ -90,11 +88,12 @@ class Post extends Component
                 'test' => 'test组',
                 'dev' => 'dev组',
             ]),*/
-            AdminElement::multiselect('content', 'Content', [
+            /*AdminElement::multiselect('content', 'Content', [
                 'admin' => 'admin组',
                 'test' => 'test组',
                 'dev' => 'dev组',
-            ]),
+            ]),*/
+            AdminElement::tinymce('content', 'Content'),
             AdminElement::elswitch('is_excellent', '推荐')->setTexts('是', '否'),
             AdminElement::elswitch('published', '发布'),
             AdminElement::datetimerange('created_at', 'updated_at', '起止时间')->required(),

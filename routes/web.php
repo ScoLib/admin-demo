@@ -16,7 +16,12 @@ Route::get('/', function () {
 });
 
 Route::get('/route', function () {
-    dd(Route::getRoutes());
+    $model = new \App\Post();
+    $schema = $model->getConnection()->getDoctrineSchemaManager();
+
+    $table = $model->getConnection()->getTablePrefix() . $model->getTable();
+
+    dd($schema->listTableColumns($table)) ;
 });
 
 Auth::routes();
