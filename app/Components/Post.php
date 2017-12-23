@@ -51,9 +51,9 @@ class Post extends Component
         $view->with('category');
         $view->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
-            AdminColumn::text('title', 'Title')->setWidth(120),
+            AdminColumn::link('title', 'Title')->setWidth(120),
             AdminColumn::text('category.name', 'Category')->setWidth(120),
-            AdminColumn::text('content', 'Content')->setWidth(120),
+            AdminColumn::html('content', 'Content')->setWidth(120),
             AdminColumn::mapping('published', 'Published'),
             AdminColumn::datetime('created_at', 'Created At')->setWidth(135),
         ]);
