@@ -47,7 +47,7 @@ class Post extends Component
      */
     public function callView(): ViewInterface
     {
-        $view = AdminView::table();
+        $view = AdminView::table()->orderBy('id', 'desc');
         $view->with('category');
         $view->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
