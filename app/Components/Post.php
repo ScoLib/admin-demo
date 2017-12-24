@@ -93,7 +93,8 @@ class Post extends Component
                 'test' => 'test组',
                 'dev' => 'dev组',
             ]),*/
-            AdminElement::tinymce('content', 'Content'),
+            //AdminElement::tinymce('content', 'Content'),
+            AdminElement::markdown('content', 'Content'),
             AdminElement::elswitch('is_excellent', '推荐')->setTexts('是', '否'),
             AdminElement::elswitch('published', '发布'),
             AdminElement::datetimerange('created_at', 'updated_at', '起止时间')->required(),
