@@ -1663,7 +1663,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:ScoLib/admin.git",
-                "reference": "1121c7654f93183fa4c3ef0529a5317f9e14f87c"
+                "reference": "c4e7d67cde614951151f778967ae1e623770218c"
             },
             "require": {
                 "kodicomponents/navigation": "^0.6",
@@ -1736,7 +1736,7 @@
                 "ScoLib",
                 "admin"
             ],
-            "time": "2017-12-24T09:14:25+00:00"
+            "time": "2017-12-24T14:59:57+00:00"
         },
         {
             "name": "scolib/attributes",
