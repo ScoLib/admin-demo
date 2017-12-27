@@ -3,6 +3,7 @@
 
 namespace App\Components;
 
+use App\Components\Observers\PermissionObserver;
 use Sco\Admin\Component\Component;
 use Sco\Admin\Facades\AdminColumn;
 use Sco\Admin\Facades\AdminElement;
@@ -15,7 +16,7 @@ class Permission extends Component
 
     protected $parentPageId = 'users';
 
-    protected $observer = \App\Observers\PermissionObserver::class;
+    protected $observer = PermissionObserver::class;
 
     protected $title = '权限';
 

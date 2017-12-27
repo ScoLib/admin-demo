@@ -2,6 +2,7 @@
 
 namespace App\Components;
 
+use App\Components\Observers\CategoryObserver;
 use Sco\Admin\Component\Component;
 use Sco\Admin\Facades\AdminElement;
 use Sco\Admin\Facades\AdminForm;
@@ -9,7 +10,7 @@ use Sco\Admin\Facades\AdminView;
 
 class Category extends Component
 {
-    protected $observer = \App\Observers\CategoryObserver::class;
+    protected $observer = CategoryObserver::class;
 
     protected $title = '分类';
 

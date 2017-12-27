@@ -4,7 +4,7 @@
 namespace App\Components;
 
 use App\Category;
-use App\Observers\PostObserver;
+use App\Components\Observers\PostObserver;
 use Sco\Admin\Component\Component;
 use Sco\Admin\Contracts\Form\FormInterface;
 use Sco\Admin\Contracts\View\ViewInterface;

@@ -3,6 +3,7 @@
 
 namespace App\Components;
 
+use App\Components\Observers\PictureObserver;
 use Sco\Admin\Component\Component;
 use Sco\Admin\Facades\AdminElement;
 use Sco\Admin\Facades\AdminForm;
@@ -12,7 +13,7 @@ class Picture extends Component
 {
     protected $icon = 'fa-picture-o';
 
-    protected $observer = \App\Observers\PictureObserver::class;
+    protected $observer = PictureObserver::class;
 
     protected $title = '图片';
 

@@ -3,6 +3,7 @@
 
 namespace App\Components;
 
+use App\Components\Observers\RoleObserver;
 use Sco\Admin\Component\Component;
 use Sco\Admin\Facades\AdminColumn;
 use Sco\Admin\Facades\AdminElement;
@@ -15,7 +16,7 @@ class Role extends Component
 
     protected $parentPageId = 'users';
 
-    protected $observer = \App\Observers\RoleObserver::class;
+    protected $observer = RoleObserver::class;
 
     protected $title = '角色';
 

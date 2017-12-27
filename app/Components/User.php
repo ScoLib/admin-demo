@@ -3,6 +3,7 @@
 
 namespace App\Components;
 
+use App\Components\Observers\UserObserver;
 use Illuminate\Http\UploadedFile;
 use Sco\Admin\Component\Component;
 use Sco\Admin\Facades\AdminColumn;
@@ -17,7 +18,7 @@ class User extends Component
 
     protected $parentPageId = 'users';
 
-    protected $observer = \App\Observers\UserObserver::class;
+    protected $observer = UserObserver::class;
 
     protected $title = '用户';
 

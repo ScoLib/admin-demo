@@ -1,39 +1,39 @@
 <?php
 
-namespace App\Observers;
+namespace App\Components\Observers;
 
 use Auth;
 use Sco\Admin\Contracts\ComponentInterface;
 
-class PermissionObserver
+class PostObserver
 {
     public function view(ComponentInterface $component)
     {
-        return Auth::user()->can('view_permission');
+        return true;
     }
 
     public function create(ComponentInterface $component)
     {
-        return Auth::user()->can('create_permission');
+        return true;
     }
 
     public function edit(ComponentInterface $component)
     {
-        return Auth::user()->can('edit_permission');
+        return true;
     }
 
     public function delete(ComponentInterface $component)
     {
-        return Auth::user()->can('delete_permission');
+        return true;
     }
 
     public function destroy(ComponentInterface $component)
     {
-        return Auth::user()->can('destroy_permission');
+        return true;
     }
 
     public function restore(ComponentInterface $component)
     {
-        return Auth::user()->can('restore_permission');
+        return true;
     }
 }
