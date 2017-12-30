@@ -1454,16 +1454,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.16",
+            "version": "v0.8.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "d4c8eab0683dc056f2ca54ca67f5388527c068b1"
+                "reference": "5069b70e8c4ea492c2b5939b6eddc78bfe41cfec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/bobthecow/psysh/d4c8eab0683dc056f2ca54ca67f5388527c068b1.zip",
-                "reference": "d4c8eab0683dc056f2ca54ca67f5388527c068b1",
+                "url": "https://files.phpcomposer.com/files/bobthecow/psysh/5069b70e8c4ea492c2b5939b6eddc78bfe41cfec.zip",
+                "reference": "5069b70e8c4ea492c2b5939b6eddc78bfe41cfec",
                 "shasum": ""
             },
             "require": {
@@ -1522,7 +1522,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-12-10T21:49:27+00:00"
+            "time": "2017-12-28T16:14:16+00:00"
         },
         {
             "name": "qiniu/php-sdk",
@@ -1663,7 +1663,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:ScoLib/admin.git",
-                "reference": "d690fba1754d5e4db5b40fb444ea1ba81ff04982"
+                "reference": "9095db151b331c712ffe17f32a272330cce0413c"
             },
             "require": {
                 "kodicomponents/navigation": "^0.6",
@@ -1736,7 +1736,7 @@
                 "ScoLib",
                 "admin"
             ],
-            "time": "2017-12-26T09:33:15+00:00"
+            "time": "2017-12-29T10:23:54+00:00"
         },
         {
             "name": "scolib/attributes",
