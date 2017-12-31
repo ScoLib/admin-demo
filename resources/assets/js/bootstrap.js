@@ -10,7 +10,7 @@ window._ = require('lodash');
 try {
     window.$ = window.jQuery = require('jquery');
 
-    require('bootstrap');
+    require('bootstrap-sass');
 } catch (e) {}
 
 /**
@@ -49,5 +49,7 @@ if (token) {
 
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
+//     key: 'your-pusher-key',
+//     cluster: 'mt1',
+//     encrypted: true
 // });
