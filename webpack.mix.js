@@ -37,5 +37,5 @@ mix.webpackConfig({
     .copyDirectory('node_modules/tinymce/plugins/emoticons/img', 'public/js/tinymce/plugins/emoticons/img')
 
 if (mix.inProduction()) {
-    // mix.version();
+    mix.version();
 }
