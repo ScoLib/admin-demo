@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8dd64c7075154e717621a133629a6d9",
+    "content-hash": "3014f068020ab437bf4f5a9184080e33",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1663,7 +1663,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:ScoLib/admin.git",
-                "reference": "326de9d1e26a0a1f44981cb1f0b9f412e46fea0f"
+                "reference": "4aebd78e4fa2c55b001d33db90e7d020127a0a01"
             },
             "require": {
                 "kodicomponents/navigation": "^0.6",
@@ -1736,7 +1736,7 @@
                 "ScoLib",
                 "admin"
             ],
-            "time": "2017-12-30T09:07:59+00:00"
+            "time": "2017-12-31T13:55:48+00:00"
         },
         {
             "name": "scolib/attributes",

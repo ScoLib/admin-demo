@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "scolib/admin-demo-by-entrust",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
@@ -16,8 +16,8 @@
         "scolib/laravel-action-log": "dev-master"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.0",
-        "barryvdh/laravel-ide-helper": "^2.2",
+        "barryvdh/laravel-debugbar": "^3.1",
+        "barryvdh/laravel-ide-helper": "^2.4",
         "doctrine/dbal": "^2.5",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
@@ -68,15 +68,5 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:ScoLib/admin.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:ScoLib/laravel-action-log.git"
-        }
-    ]
+    }
 }

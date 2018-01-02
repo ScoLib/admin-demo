@@ -12,14 +12,18 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-    .webpackConfig({
-        output: {
-            chunkFilename: `js/[name]${
-                mix.inProduction() ? '.[chunkhash].chunk.js' : '.chunk.js'
-                }`,
-            publicPath: '/',
-        }
-    })
+    .sass('resources/assets/sass/app.scss', 'public/css');
+
+// mix.sourceMaps();
+
+mix.webpackConfig({
+    output: {
+        chunkFilename: `js/[name]${
+            mix.inProduction() ? '.[chunkhash].chunk.js' : '.chunk.js'
+            }`,
+        publicPath: '/',
+    }
+})
     .js('resources/assets/vendor/admin/main.js', 'public/js/admin.js')
     .autoload({
         jquery: ['$', 'window.jQuery', 'jQuery', 'jquery'],
@@ -33,5 +37,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .copyDirectory('node_modules/tinymce/plugins/emoticons/img', 'public/js/tinymce/plugins/emoticons/img')
 
 if (mix.inProduction()) {
-    mix.version();
+    // mix.version();
 }
