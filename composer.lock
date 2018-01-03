@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3014f068020ab437bf4f5a9184080e33",
+    "content-hash": "87eac024fba59509d8a621ff0182a8b8",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1662,8 +1662,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:ScoLib/admin.git",
-                "reference": "4aebd78e4fa2c55b001d33db90e7d020127a0a01"
+                "url": "https://github.com/ScoLib/admin.git",
+                "reference": "9fae324de6a52ec1fbdcfe4b518da15f61d1cff8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/ScoLib/admin/9fae324de6a52ec1fbdcfe4b518da15f61d1cff8.zip",
+                "reference": "9fae324de6a52ec1fbdcfe4b518da15f61d1cff8",
+                "shasum": ""
             },
             "require": {
                 "kodicomponents/navigation": "^0.6",
@@ -1703,22 +1709,7 @@
                     "Sco\\Admin\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Sco\\Admin\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "phpunit"
-                ],
-                "check-style": [
-                    "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src routes config"
-                ],
-                "fix-style": [
-                    "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src routes config"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1736,7 +1727,7 @@
                 "ScoLib",
                 "admin"
             ],
-            "time": "2017-12-31T13:55:48+00:00"
+            "time": "2018-01-02T09:48:51+00:00"
         },
         {
             "name": "scolib/attributes",
@@ -1879,8 +1870,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:ScoLib/laravel-action-log.git",
+                "url": "https://github.com/ScoLib/laravel-action-log.git",
                 "reference": "cfd5b18a86a9910e425ec5e32d4714098366f12e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/ScoLib/laravel-action-log/cfd5b18a86a9910e425ec5e32d4714098366f12e.zip",
+                "reference": "cfd5b18a86a9910e425ec5e32d4714098366f12e",
+                "shasum": ""
             },
             "require": {
                 "php": ">=7.0.0",
@@ -1916,22 +1913,7 @@
                     "Sco\\ActionLog\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Sco\\ActionLog\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "phpunit"
-                ],
-                "check-style": [
-                    "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests database config"
-                ],
-                "fix-style": [
-                    "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests database config"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],

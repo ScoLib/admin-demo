@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Components;
 
 use App\Components\Observers\PermissionObserver;
