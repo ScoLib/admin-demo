@@ -1,41 +1,40 @@
 <?php
 
-
 namespace App\Components;
 
 use App\Category;
 use App\Components\Observers\PostObserver;
 use Sco\Admin\Component\Component;
 use Sco\Admin\Contracts\Form\FormInterface;
-use Sco\Admin\Contracts\View\ViewInterface;
+use Sco\Admin\Contracts\Display\DisplayInterface;
 use Sco\Admin\Facades\AdminColumn;
+use Sco\Admin\Facades\AdminDisplay;
+use Sco\Admin\Facades\AdminDisplayFilter;
 use Sco\Admin\Facades\AdminElement;
 use Sco\Admin\Facades\AdminForm;
-use Sco\Admin\Facades\AdminView;
-use Sco\Admin\Facades\AdminViewFilter;
 
 class Post extends Component
 {
     /**
-     * Permission observer class
+     * The page icon class name.
      *
-     * @var string
+     * @var string|null
      */
-    protected $observer = PostObserver::class;
+    protected $icon = 'fa-book';
 
     /**
-     * Navigator title
+     * The component display name
      *
      * @var string
      */
     protected $title = '日志';
 
     /**
-     * Navigator icon
+     * Access observer class
      *
      * @var string
      */
-    protected $icon = 'fa-book';
+    protected $observer = PostObserver::class;
 
     public function model()
     {
@@ -43,37 +42,44 @@ class Post extends Component
     }
 
     /**
-     * @return \Sco\Admin\Contracts\View\ViewInterface
+     * @return \Sco\Admin\Contracts\Display\DisplayInterface
      */
-    public function callView(): ViewInterface
+    public function callDisplay(): DisplayInterface
     {
-        $view = AdminView::table()->orderBy('id', 'desc');
-        $view->with('category');
-        $view->setColumns([
+        $display = AdminDisplay::table()->orderBy('id', 'desc');
+
+        $display->with('category');
+        $display->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
             AdminColumn::link('title', 'Title')->setWidth(120),
             AdminColumn::text('category.name', 'Category')->setWidth(120),
             AdminColumn::html('content', 'Content')->setWidth(120),
+            AdminColumn::mapping('is_excellent', 'IsExcellent'),
             AdminColumn::mapping('published', 'Published'),
             AdminColumn::datetime('created_at', 'Created At')->setWidth(135),
         ]);
-        $view->setFilters([
-            AdminViewFilter::text('title', 'Title')->setOperator('like'),
-            AdminViewFilter::checkbox('category.id', '分类', Category::class)->setOptionsLabelAttribute('name'),
-            AdminViewFilter::daterange('created_at', '创建时间'),
-            AdminViewFilter::radio('published', '发布', [
+
+        $display->setFilters([
+            AdminDisplayFilter::text('title', 'Title')->setOperator('like'),
+            AdminDisplayFilter::checkbox('category.id', '分类', Category::class)
+                ->setOptionsLabelAttribute('name'),
+            AdminDisplayFilter::daterange('created_at', '创建时间'),
+            AdminDisplayFilter::radio('published', '发布', [
                 // '' => '全部',
                 0 => '未发布',
                 1 => '已发布'
             ])
         ]);
-        return $view;
+
+        return $display;
     }
 
     /**
+     * @param mixed $id
+     *
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callEdit(): FormInterface
+    public function callEdit($id): FormInterface
     {
         return AdminForm::form()->setElements([
             AdminElement::text('title', 'Title')->required('必填')->unique('唯一'),
@@ -106,6 +112,6 @@ class Post extends Component
      */
     public function callCreate(): FormInterface
     {
-        return $this->callEdit();
+        return $this->callEdit(null);
     }
 }

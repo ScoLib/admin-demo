@@ -2,12 +2,11 @@
 
 namespace App\Components\Observers;
 
-use Auth;
 use Sco\Admin\Contracts\ComponentInterface;
 
 class PostObserver
 {
-    public function view(ComponentInterface $component)
+    public function display(ComponentInterface $component)
     {
         return true;
     }

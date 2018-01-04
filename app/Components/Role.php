@@ -1,14 +1,15 @@
 <?php
 
-
 namespace App\Components;
 
 use App\Components\Observers\RoleObserver;
 use Sco\Admin\Component\Component;
+use Sco\Admin\Contracts\Form\FormInterface;
+use Sco\Admin\Contracts\Display\DisplayInterface;
 use Sco\Admin\Facades\AdminColumn;
+use Sco\Admin\Facades\AdminDisplay;
 use Sco\Admin\Facades\AdminElement;
 use Sco\Admin\Facades\AdminForm;
-use Sco\Admin\Facades\AdminView;
 
 class Role extends Component
 {
@@ -16,30 +17,49 @@ class Role extends Component
 
     protected $parentPageId = 'users';
 
-    protected $observer = RoleObserver::class;
-
+    /**
+     * The component display name
+     *
+     * @var string
+     */
     protected $title = '角色';
+
+    /**
+     * Access observer class
+     *
+     * @var string
+     */
+    protected $observer = RoleObserver::class;
 
     public function model()
     {
         return \App\Role::class;
     }
 
-    public function callView()
+    /**
+     * @return \Sco\Admin\Contracts\Display\DisplayInterface
+     */
+    public function callDisplay(): DisplayInterface
     {
-        $view = AdminView::table()->setColumns([
+        $display = AdminDisplay::table();
+
+        $display->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
             AdminColumn::text('name', 'Name')->setWidth(120),
             AdminColumn::text('display_name', 'Display Name')->setWidth(120),
+            AdminColumn::text('description', 'Description')->setWidth(120),
             AdminColumn::datetime('created_at', 'Created At'),
         ])->disablePagination();
-        return $view;
+
+        return $display;
     }
 
     /**
+     * @param mixed $id
+     *
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callEdit()
+    public function callEdit($id): FormInterface
     {
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name')->required()->unique(),
@@ -81,8 +101,8 @@ class Role extends Component
     /**
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callCreate()
+    public function callCreate(): FormInterface
     {
-        return $this->callEdit();
+        return $this->callEdit(null);
     }
 }

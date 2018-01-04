@@ -4,50 +4,71 @@ namespace App\Components;
 
 use App\Components\Observers\PermissionObserver;
 use Sco\Admin\Component\Component;
+use Sco\Admin\Contracts\Form\FormInterface;
+use Sco\Admin\Contracts\Display\DisplayInterface;
 use Sco\Admin\Facades\AdminColumn;
+use Sco\Admin\Facades\AdminDisplay;
 use Sco\Admin\Facades\AdminElement;
 use Sco\Admin\Facades\AdminForm;
-use Sco\Admin\Facades\AdminView;
 
 class Permission extends Component
 {
+    /**
+     * The page icon class name.
+     *
+     * @var string|null
+     */
     protected $icon = 'fa-user';
 
-    protected $parentPageId = 'users';
-
-    protected $observer = PermissionObserver::class;
-
+    /**
+     * The component display name
+     *
+     * @var string
+     */
     protected $title = '权限';
+
+    /**
+     * Access observer class
+     *
+     * @var string
+     */
+    protected $observer = PermissionObserver::class;
 
     public function model()
     {
         return \App\Permission::class;
     }
 
-    public function callView()
+    /**
+     * @return \Sco\Admin\Contracts\Display\DisplayInterface
+     */
+    public function callDisplay(): DisplayInterface
     {
-        $view = AdminView::table();
-        //$view->with('roles');
+        $display = AdminDisplay::table();
+        //$display->with('roles');
 
-        $view->setColumns([
+        $display->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80)->sortable(),
             AdminColumn::link('name', 'Name')->setWidth(120),
             AdminColumn::text('display_name', 'Display Name')->setWidth(120),
+            AdminColumn::text('description', 'Description'),
             AdminColumn::datetime('created_at', 'Created At'),
             //AdminColumn::tags('roles.display_name', 'Roles'),
         ]);
 
-        return $view;
+        return $display;
     }
 
     /**
+     * @param mixed $id
+     *
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callEdit($id)
+    public function callEdit($id): FormInterface
     {
         return AdminForm::form()->setElements([
-            AdminElement::text('name', 'Name'),
-            AdminElement::text('display_name', 'Display Name'),
+            AdminElement::text('name', 'Name')->required(),
+            AdminElement::text('display_name', 'Display Name')->required(),
             AdminElement::textarea('description', 'Description')->setRows(5),
         ]);
     }
@@ -55,7 +76,7 @@ class Permission extends Component
     /**
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callCreate()
+    public function callCreate(): FormInterface
     {
         return $this->callEdit(null);
     }

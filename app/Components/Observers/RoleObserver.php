@@ -7,7 +7,7 @@ use Sco\Admin\Contracts\ComponentInterface;
 
 class RoleObserver
 {
-    public function view(ComponentInterface $component)
+    public function display(ComponentInterface $component)
     {
         return Auth::user()->can('view_role');
     }

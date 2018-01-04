@@ -1,16 +1,16 @@
 <?php
 
-
 namespace App\Components;
 
 use App\Components\Observers\UserObserver;
-use Illuminate\Http\UploadedFile;
 use Sco\Admin\Component\Component;
+use Sco\Admin\Contracts\Form\FormInterface;
+use Sco\Admin\Contracts\Display\DisplayInterface;
 use Sco\Admin\Facades\AdminColumn;
+use Sco\Admin\Facades\AdminDisplay;
+use Sco\Admin\Facades\AdminDisplayFilter;
 use Sco\Admin\Facades\AdminElement;
 use Sco\Admin\Facades\AdminForm;
-use Sco\Admin\Facades\AdminView;
-use Sco\Admin\Facades\AdminViewFilter;
 
 class User extends Component
 {
@@ -18,21 +18,34 @@ class User extends Component
 
     protected $parentPageId = 'users';
 
-    protected $observer = UserObserver::class;
-
+    /**
+     * The component display name
+     *
+     * @var string
+     */
     protected $title = '用户';
+
+    /**
+     * Access observer class
+     *
+     * @var string
+     */
+    protected $observer = UserObserver::class;
 
     public function model()
     {
         return \App\User::class;
     }
 
-    public function callView()
+    /**
+     * @return \Sco\Admin\Contracts\Display\DisplayInterface
+     */
+    public function callDisplay(): DisplayInterface
     {
-        $view = AdminView::table();
-        $view->with('roles');
+        $display = AdminDisplay::table();
+        $display->with('roles');
 
-        $view->setColumns([
+        $display->setColumns([
             AdminColumn::text('id', 'ID')->setWidth(80),
             AdminColumn::image('avatar', 'Avatar')->setDisk('public'),
             AdminColumn::text('name', 'Name')->setWidth(120),
@@ -41,18 +54,18 @@ class User extends Component
             AdminColumn::datetime('created_at', 'Created At')->setFormat('humans'),
         ]);
 
-        $view->setFilters([
-            AdminViewFilter::text('id', 'ID'),
-            AdminViewFilter::checkbox('role', '用户组', [
+        $display->setFilters([
+            AdminDisplayFilter::text('id', 'ID'),
+            AdminDisplayFilter::checkbox('role', '用户组', [
                 [
                     'value' => 'admin',
                     'label' => '管理员',
                 ],
             ]),
-            AdminViewFilter::daterange('created_at', '注册起止时间'),
+            AdminDisplayFilter::daterange('created_at', '注册起止时间'),
         ]);
 
-        /*$view->setApplies(
+        /*$display->setApplies(
             function ($query) {
                 dump('sss');
             },
@@ -64,28 +77,33 @@ class User extends Component
             }
             );
 
-        $a = $view->addApply(function ($query, $b) {
+        $a = $display->addApply(function ($query, $b) {
             dump('sss');
         });
 
-        dump($view->getApplies());
+        dump($display->getApplies());
 
-        $view->setScopes([
+        $display->setScopes([
             'unpublish', ['last', 3]
         ]);
 
-        // $view->setScopes(
+        //$display->setScopes(
         //     'unpublish', ['last', 3]
         // );
 
-        $a = $view->addScope('publish', 2);
+        $a = $display->addScope('publish', 2);
 
-        dd($view->getScopes());*/
+        dd($display->getScopes());*/
 
-        return $view;
+        return $display;
     }
 
-    public function callEdit()
+    /**
+     * @param mixed $id
+     *
+     * @return \Sco\Admin\Contracts\Form\FormInterface
+     */
+    public function callEdit($id): FormInterface
     {
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name')->required()->unique()->setMaxLength('10'),
@@ -100,11 +118,17 @@ class User extends Component
 
             /*AdminElement::multiselect('roles', 'Roles', \App\Role::class)
                 ->setOptionsLabelAttribute('display_name'),*/
+            //AdminElement::datetime('created_at', 'CreatedAt')->required(),
+            //AdminElement::datetime('updated_at', 'UpdatedAt')->required(),
+
         ]);
     }
 
-    public function callCreate()
+    /**
+     * @return \Sco\Admin\Contracts\Form\FormInterface
+     */
+    public function callCreate(): FormInterface
     {
-        return $this->callEdit();
+        return $this->callEdit(null);
     }
 }

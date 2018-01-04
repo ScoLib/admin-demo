@@ -2,38 +2,37 @@
 
 namespace App\Components\Observers;
 
-use Auth;
 use Sco\Admin\Contracts\ComponentInterface;
 
 class CategoryObserver
 {
-    public function view(ComponentInterface $component)
+    public function display(ComponentInterface $component)
     {
-        return Auth::user()->can('view_category');
+        return true;
     }
 
     public function create(ComponentInterface $component)
     {
-        return Auth::user()->can('create_category');
+        return true;
     }
 
     public function edit(ComponentInterface $component)
     {
-        return Auth::user()->can('edit_category');
+        return true;
     }
 
     public function delete(ComponentInterface $component)
     {
-        return Auth::user()->can('delete_category');
+        return true;
     }
 
     public function destroy(ComponentInterface $component)
     {
-        return Auth::user()->can('destroy_category');
+        return true;
     }
 
     public function restore(ComponentInterface $component)
     {
-        return Auth::user()->can('restore_category');
+        return true;
     }
 }

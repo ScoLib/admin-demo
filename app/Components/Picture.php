@@ -1,49 +1,68 @@
 <?php
 
-
 namespace App\Components;
 
 use App\Components\Observers\PictureObserver;
 use Sco\Admin\Component\Component;
+use Sco\Admin\Contracts\Form\FormInterface;
+use Sco\Admin\Contracts\Display\DisplayInterface;
+use Sco\Admin\Facades\AdminDisplay;
 use Sco\Admin\Facades\AdminElement;
 use Sco\Admin\Facades\AdminForm;
-use Sco\Admin\Facades\AdminView;
 
 class Picture extends Component
 {
     protected $icon = 'fa-picture-o';
 
-    protected $observer = PictureObserver::class;
-
+    /**
+     * The component display name
+     *
+     * @var string
+     */
     protected $title = '图片';
+
+    /**
+     * Access observer class
+     *
+     * @var string
+     */
+    protected $observer = PictureObserver::class;
 
     public function model()
     {
         return \App\Picture::class;
     }
 
-    public function callView()
+    /**
+     * @return \Sco\Admin\Contracts\Display\DisplayInterface
+     */
+    public function callDisplay(): DisplayInterface
     {
-        $view = AdminView::image()->setImagePathAttribute('path');
-        return $view;
+        $display = AdminDisplay::image()->setImagePathAttribute('path');
+
+        return $display;
     }
 
     /**
+     * @param mixed $id
+     *
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callEdit()
+    public function callEdit($id): FormInterface
     {
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name')->required()->unique(),
-            AdminElement::image('path', '图片')->required(),
+            AdminElement::image('path', '图片')->required()->setUploadPath(function ($file) {
+                return 'admin/pics';
+            }),
         ]);
     }
 
     /**
      * @return \Sco\Admin\Contracts\Form\FormInterface
      */
-    public function callCreate()
+    public function callCreate(): FormInterface
     {
-        return $this->callEdit();
+        return $this->callEdit(null);
     }
 }
