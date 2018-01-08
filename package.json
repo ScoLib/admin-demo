@@ -26,7 +26,7 @@
         "less": "^2.7.3",
         "less-loader": "^4.0.5",
         "lodash": "^4.17.4",
-        "v-nestable": "0.0.1",
+        "nestable2": "^1.6.0",
         "v-tinymce": "^1.0.3",
         "v-viewer": "^0.3.0",
         "vue": "^2.5.13",
