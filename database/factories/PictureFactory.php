@@ -12,6 +12,6 @@ $factory->define(\App\Picture::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
         //'path' => $faker->image($path)
-        'path' => $faker->imageUrl(),
+        'path' => $faker->imageUrl(800, 800),
     ];
 });

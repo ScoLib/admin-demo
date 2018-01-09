@@ -60,6 +60,7 @@ class Post extends Component
         ]);
 
         $display->setFilters([
+            AdminDisplayFilter::text('id', 'ID'),
             AdminDisplayFilter::text('title', 'Title')->setOperator('like'),
             AdminDisplayFilter::checkbox('category.id', '分类', Category::class)
                 ->setOptionsLabelAttribute('name'),
@@ -102,7 +103,11 @@ class Post extends Component
             //AdminElement::tinymce('content', 'Content'),
             AdminElement::markdown('content', 'Content'),
             AdminElement::elswitch('is_excellent', '推荐')->setTexts('是', '否'),
-            AdminElement::elswitch('published', '发布'),
+            //AdminElement::elswitch('published', '发布'),
+            AdminElement::radio('published', '发布', [
+                0 => '未发布',
+                1 => '已发布'
+            ]),
             AdminElement::datetimerange('created_at', 'updated_at', '起止时间')->required(),
         ]);
     }
