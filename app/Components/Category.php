@@ -61,6 +61,7 @@ class Category extends Component
             AdminElement::text('name', 'Name')->required(),
             AdminElement::text('slug', 'Slug')->required(),
             AdminElement::number('order', 'Order')->setMax(200)->setStep(2),
+            AdminElement::time('created_at', 'Created At'),
         ]);
     }
 
