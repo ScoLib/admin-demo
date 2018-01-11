@@ -52,7 +52,7 @@ class Picture extends Component
     {
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name')->required()->unique(),
-            AdminElement::images('path', '图片')->required()->setUploadPath(function ($file) {
+            AdminElement::image('path', '图片')->required()->setUploadPath(function ($file) {
                 return 'admin/pics';
             }),
         ]);

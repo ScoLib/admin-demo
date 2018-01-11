@@ -1663,12 +1663,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ScoLib/admin.git",
-                "reference": "6162b5e578bc31d8e614d8065bb31dca09967e93"
+                "reference": "7f4a32d8ae3c2d33b9aeadfa5f14ccfd7d6cec90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/ScoLib/admin/6162b5e578bc31d8e614d8065bb31dca09967e93.zip",
-                "reference": "6162b5e578bc31d8e614d8065bb31dca09967e93",
+                "url": "https://files.phpcomposer.com/files/ScoLib/admin/7f4a32d8ae3c2d33b9aeadfa5f14ccfd7d6cec90.zip",
+                "reference": "7f4a32d8ae3c2d33b9aeadfa5f14ccfd7d6cec90",
                 "shasum": ""
             },
             "require": {
@@ -1727,7 +1727,7 @@
                 "ScoLib",
                 "admin"
             ],
-            "time": "2018-01-09T10:11:03+00:00"
+            "time": "2018-01-10T09:44:19+00:00"
         },
         {
             "name": "scolib/attributes",

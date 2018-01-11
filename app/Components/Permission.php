@@ -20,6 +20,8 @@ class Permission extends Component
      */
     protected $icon = 'fa-user';
 
+    protected $parentPageId = 'users';
+
     /**
      * The component display name
      *

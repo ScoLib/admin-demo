@@ -3,6 +3,7 @@
 namespace App\Components;
 
 use App\Components\Observers\UserObserver;
+use Illuminate\Http\UploadedFile;
 use Sco\Admin\Component\Component;
 use Sco\Admin\Contracts\Form\FormInterface;
 use Sco\Admin\Contracts\Display\DisplayInterface;
