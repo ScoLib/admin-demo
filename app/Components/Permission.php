@@ -50,7 +50,7 @@ class Permission extends Component
         //$display->with('roles');
 
         $display->setColumns([
-            AdminColumn::text('id', 'ID')->setWidth(80)->sortable(),
+            AdminColumn::text('id', 'ID')->setWidth(80)->enableSortable(),
             AdminColumn::link('name', 'Name')->setWidth(120),
             AdminColumn::text('display_name', 'Display Name')->setWidth(120),
             AdminColumn::text('description', 'Description'),
