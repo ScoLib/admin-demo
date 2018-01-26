@@ -83,7 +83,7 @@ class Post extends Component
     public function callEdit($id): FormInterface
     {
         return AdminForm::form()->setElements([
-            AdminElement::text('title', 'Title')->required('必填')->unique('唯一'),
+            AdminElement::text('title', 'Title')->required('必填')->unique('唯一')->setMaxLength(20),
             AdminElement::select('category_id', '分类', Category::class)
                 ->setOptionsLabelAttribute('name')
                 ->required(),
