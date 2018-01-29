@@ -100,16 +100,16 @@ class Post extends Component
                 'test' => 'test组',
                 'dev' => 'dev组',
             ]),*/
-            //AdminElement::tinymce('content', 'Content'),
+            AdminElement::tinymce('content', 'Content'),
             //AdminElement::markdown('content', 'Content'),
-            AdminElement::images('content', 'Content')->cardListType()->enableMultiSelect()->setFileUploadsLimit(4),
+            //AdminElement::images('content', 'Content')->cardListType()->enableMultiSelect()->setFileUploadsLimit(4),
             AdminElement::elswitch('is_excellent', '推荐')->setTexts('是', '否'),
             //AdminElement::elswitch('published', '发布'),
             AdminElement::radio('published', '发布', [
                 0 => '未发布',
                 1 => '已发布'
             ])->setDefaultValue(1)->required(),
-            AdminElement::datetimerange('created_at', 'updated_at', '起止时间')->required(),
+            AdminElement::datetimerange(['created_at', 'updated_at'], '起止时间')->required(),
         ]);
     }
 
