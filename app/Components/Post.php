@@ -100,7 +100,10 @@ class Post extends Component
                 'test' => 'test组',
                 'dev' => 'dev组',
             ]),*/
-            AdminElement::tinymce('content', 'Content'),
+            AdminElement::multiselect('content', 'Content', Category::class)
+                ->setOptionsLabelAttribute('name'),
+            //AdminElement::datetimerange('content', 'Content'),
+            //AdminElement::tinymce('content', 'Content'),
             //AdminElement::markdown('content', 'Content'),
             //AdminElement::images('content', 'Content')->cardListType()->enableMultiSelect()->setFileUploadsLimit(4),
             AdminElement::elswitch('is_excellent', '推荐')->setTexts('是', '否'),

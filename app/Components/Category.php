@@ -44,8 +44,13 @@ class Category extends Component
      */
     public function callDisplay(): DisplayInterface
     {
-        $display = AdminDisplay::tree()->setTitleAttribute('name');
-        $display->orderBy('order');
+        $display = AdminDisplay::table();
+        $display->setColumns([
+            AdminColumn::text('id', 'ID')->setWidth(80),
+            AdminColumn::link('name', 'Name')->setWidth(120),
+            AdminColumn::text('slug', 'Slug')->setWidth(120),
+            AdminColumn::text('order', 'Order')->setWidth(120),
+        ]);
 
         return $display;
     }
@@ -61,7 +66,10 @@ class Category extends Component
             AdminElement::text('name', 'Name')->required(),
             AdminElement::text('slug', 'Slug')->required(),
             AdminElement::number('order', 'Order')->setMax(200)->setStep(2),
-            AdminElement::time('created_at', 'Created At'),
+            AdminElement::datetime('created_at', 'Created At'),
+            //AdminElement::datetimerange(['dated', 'end_dated'], '日期'),
+            //AdminElement::time('timed', '时间'),
+            //AdminElement::timestamp('timestamp', '时间戳'),
         ]);
     }
 
