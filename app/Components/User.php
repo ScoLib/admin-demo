@@ -43,7 +43,7 @@ class User extends Component
      */
     public function callDisplay(): DisplayInterface
     {
-        $display = AdminDisplay::table();
+        $display = AdminDisplay::table()->orderBy('id', 'desc');
         $display->with('roles');
 
         $display->setColumns([
@@ -109,11 +109,16 @@ class User extends Component
         return AdminForm::form()->setElements([
             AdminElement::text('name', 'Name')->required()->unique()->setMaxLength('10'),
             AdminElement::email('email', 'Email')->required()->unique(),
-            AdminElement::password('password', 'Password')->required(),
+
+            AdminElement::password('password', 'Password')
+                ->required()
+                ->notRequiredWithUpdate(),
+
             AdminElement::image('avatar', 'Avatar')
                 ->setUploadFileNameRule(function (UploadedFile $file) {
                     return uniqid() . '.' . $file->guessExtension();
                 })->setMaxFileSize(2 * 1024),
+
             AdminElement::checkbox('roles', 'Roles', \App\Role::class)
                 ->setOptionsLabelAttribute('display_name'),
 
