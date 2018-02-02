@@ -57,7 +57,6 @@
             "@php artisan package:discover",
             "php artisan ide-helper:generate",
             "php artisan ide-helper:meta",
-            "php artisan optimize",
             "php artisan vendor:publish --provider=\"Sco\\Admin\\Providers\\ResourcesServiceProvider\" --force",
             "php artisan migrate:fresh",
             "php artisan db:seed",
