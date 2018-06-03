@@ -45,4 +45,4 @@ Route::group([
     ]);
 });
 
-Admin::routes();
+//Admin::routes();
